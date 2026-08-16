@@ -20,8 +20,8 @@ class Action:
 	
 	## only makes sense when type is dialog
 	var text: String
-	var small_image: int
-	var large_image: int
+	var picture: Texture
+	var background: int
 	
 	## only makes sense when type is OptionSelect
 	var options: Array[Option]
@@ -84,10 +84,12 @@ func get_action(id: ActionId) -> Action:
 		ActionId.DIALOG_01:
 			action.type = ActionType.DIALOG
 			action.text = "hello this is dialog 1"
+			action.picture = DialogBox.GUY
 			action.set_next_action(ActionId.OPTION_01)
 		ActionId.DIALOG_02:
 			action.type = ActionType.DIALOG
 			action.text = "THIS DIOLOG 2WO"
+			action.picture = null
 			action.set_next_action(ActionId.OPTION_01)
 		ActionId.OPTION_01:
 			action.type = ActionType.OPTION_SELECT
@@ -109,7 +111,7 @@ func begin_action(id: ActionId) -> void:
 	match current_action.type:
 		ActionType.DIALOG:
 			dialogue_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
-			dialogue_box.text_display(current_action.text)
+			dialogue_box.text_display(current_action.text, current_action.picture)
 		ActionType.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())

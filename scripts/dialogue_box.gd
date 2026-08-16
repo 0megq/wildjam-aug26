@@ -2,11 +2,9 @@ class_name DialogBox extends Control
 
 signal dialog_finished
 
-enum Picture {
-	NARRATOR,
-	BULL,
-	GUY
-}
+const BULL := preload("res://icon.svg")
+const GUY := preload("res://guy.png")
+
 
 var newline_detected := false
 var dialog_idx := 0
@@ -14,15 +12,18 @@ var dialog_idx := 0
 @onready var character_sound: AudioStreamPlayer = $CharacterSound
 @onready var character_timer: Timer = $CharacterTimer
 @onready var label: Label = find_child("Label")
+@onready var icon: TextureRect = find_child("Icon")
 
 func _ready() -> void:
 	hide()
 
 
-func text_display(text: String) -> void:
+func text_display(text: String, picture: Texture) -> void:
 	show()
 	label.visible_characters = 0
 	label.text = text
+	icon.visible = picture != null
+	icon.texture = picture
 	
 	label.visible_characters += 1
 	character_sound.play()

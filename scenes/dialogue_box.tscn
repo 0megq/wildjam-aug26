@@ -30,7 +30,7 @@ layout_mode = 2
 split_offsets = PackedInt32Array(114)
 split_offset = 114
 
-[node name="Guy" type="TextureRect" parent="MarginContainer/HSplitContainer" unique_id=1243171672]
+[node name="Icon" type="TextureRect" parent="MarginContainer/HSplitContainer" unique_id=1243171672]
 custom_maximum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 4
