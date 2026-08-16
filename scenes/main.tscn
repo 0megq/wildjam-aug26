@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://scenes/dialogue_box.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2ljgr"]
+font_color = Color(1, 0, 1, 1)
+
 [node name="Control" type="Control" unique_id=2054030712]
 layout_mode = 3
 anchors_preset = 15
@@ -29,3 +32,11 @@ grow_vertical = 0
 [node name="OptionPopup" parent="." unique_id=196373830 instance=ExtResource("4_tbgi4")]
 visible = false
 layout_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1565103392]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 19.0
+offset_right = 73.0
+offset_bottom = 42.0
+label_settings = SubResource("LabelSettings_2ljgr")

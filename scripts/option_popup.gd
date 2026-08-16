@@ -6,15 +6,16 @@ signal option_selected(number: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hide()
 	for i in option_container.get_child_count():
-		option_container.get_child(i).pressed.connect(_on_option_selected.bind(i+1))
+		option_container.get_child(i).pressed.connect(_on_option_selected.bind(i))
 
 
 func _on_option_selected(number: int) -> void:
 	option_selected.emit(number)
 
 
-func display_options(arr: Array):
+func display_options(arr: Array[String]):
 	for child in option_container.get_children():
 		child.hide()
 	show()

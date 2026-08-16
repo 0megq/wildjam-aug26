@@ -1,32 +1,22 @@
-extends Control
+class_name DialogBox extends Control
 
 signal dialog_finished
 
-const dialog = [
-	"Oh, great. Just what I needed today.",
-	"You can fuck right off, okay cow?",
-]
+enum Picture {
+	NARRATOR,
+	BULL,
+	GUY
+}
 
 var newline_detected := false
 var dialog_idx := 0
 
-
-
 @onready var character_sound: AudioStreamPlayer = $CharacterSound
 @onready var character_timer: Timer = $CharacterTimer
-@onready var label: Label = self.find_child("Label")
+@onready var label: Label = find_child("Label")
 
 func _ready() -> void:
 	hide()
-	
-
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("ui_accept"):
-		#if dialog_idx >= dialog.size():
-			#dialog_finished.emit()
-			#hide()
-		#text_display(dialog[dialog_idx])
-		#dialog_idx += 1
 
 
 func text_display(text: String) -> void:
