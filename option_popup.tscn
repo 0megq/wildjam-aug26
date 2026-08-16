@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cvfas87s2uvp1"]
+
+[ext_resource type="Script" uid="uid://dchnndsj5ry2w" path="res://option_popup.gd" id="1_4xk3h"]
+
+[node name="OptionPopup" type="ColorRect" unique_id=196373830]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2627451)
+script = ExtResource("1_4xk3h")
+
+[node name="OptionContainer" type="VBoxContainer" parent="." unique_id=1739825807]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Option1" type="Button" parent="OptionContainer" unique_id=397755554]
+layout_mode = 2
+text = "option 1"
+
+[node name="Option2" type="Button" parent="OptionContainer" unique_id=1729652664]
+layout_mode = 2
+text = "option 2"
+
+[node name="Option3" type="Button" parent="OptionContainer" unique_id=481404013]
+layout_mode = 2
+text = "option 3"

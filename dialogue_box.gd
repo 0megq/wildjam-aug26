@@ -1,12 +1,16 @@
 extends Control
 
-var newline_detected := false
-var dialog_idx := 0
+signal dialog_finished
 
 const dialog = [
 	"Oh, great. Just what I needed today.",
 	"You can fuck right off, okay cow?",
 ]
+
+var newline_detected := false
+var dialog_idx := 0
+
+
 
 @onready var character_sound: AudioStreamPlayer = $CharacterSound
 @onready var character_timer: Timer = $CharacterTimer
@@ -16,14 +20,13 @@ func _ready() -> void:
 	hide()
 	
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		if dialog_idx >= dialog.size():
-			hide()
-			dialog_idx = 0
-			return
-		text_display(dialog[dialog_idx])
-		dialog_idx += 1
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#if dialog_idx >= dialog.size():
+			#dialog_finished.emit()
+			#hide()
+		#text_display(dialog[dialog_idx])
+		#dialog_idx += 1
 
 
 func text_display(text: String) -> void:
@@ -39,6 +42,7 @@ func text_display(text: String) -> void:
 func _on_character_timer_timeout() -> void:
 
 	if label.visible_characters >= label.text.length():
+		dialog_finished.emit()
 		return
 	if newline_detected:
 		label.text = label.text.substr(label.visible_characters + 1)
@@ -51,4 +55,4 @@ func _on_character_timer_timeout() -> void:
 	else:
 		label.visible_characters += 1
 		character_sound.play()
-		character_timer.start(0.01)
+		character_timer.start(0.05)
