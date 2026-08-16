@@ -4,15 +4,13 @@ var newline_detected := false
 var dialog_idx := 0
 
 const dialog = [
-	"hello",
-	"this hgbjbhgvjbkbghbjkn",
-	"vghbjhbhjvjnj",
-	"done"
+	"Oh, great. Just what I needed today.",
+	"You can fuck right off, okay cow?",
 ]
 
 @onready var character_sound: AudioStreamPlayer = $CharacterSound
 @onready var character_timer: Timer = $CharacterTimer
-@onready var label: Label = $Label
+@onready var label: Label = self.find_child("Label")
 
 func _ready() -> void:
 	hide()
@@ -22,6 +20,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		if dialog_idx >= dialog.size():
 			hide()
+			dialog_idx = 0
 			return
 		text_display(dialog[dialog_idx])
 		dialog_idx += 1

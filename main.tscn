@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://chmok0k3o5o3q"]
 
+[ext_resource type="Texture2D" uid="uid://cwiplt5ysva0g" path="res://background.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://dialogue_box.tscn" id="1_ig7tw"]
 
 [node name="Control" type="Control" unique_id=2054030712]
@@ -9,6 +10,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="." unique_id=768742073]
+position = Vector2(576.5, 321.25)
+scale = Vector2(1.6985294, 1.5782396)
+texture = ExtResource("1_0xm2m")
 
 [node name="Control" parent="." unique_id=1082772398 instance=ExtResource("1_ig7tw")]
 layout_mode = 1

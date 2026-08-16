@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw7vvd8ejur3x" path="res://dialogue_box.gd" id="1_senjy"]
 [ext_resource type="AudioStream" uid="uid://coomrlpvmw30q" path="res://arrow_hit_wall.wav" id="2_n23yb"]
+[ext_resource type="Texture2D" uid="uid://l52rbydruc7r" path="res://guy.png" id="3_0nste"]
 
 [node name="Control" type="PanelContainer" unique_id=1082772398]
 anchors_preset = 15
@@ -11,14 +12,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_senjy")
 
-[node name="Label" type="Label" parent="." unique_id=912514387]
-layout_mode = 2
-size_flags_vertical = 1
-
 [node name="CharacterTimer" type="Timer" parent="." unique_id=263439537]
 one_shot = true
 
 [node name="CharacterSound" type="AudioStreamPlayer" parent="." unique_id=119427711]
 stream = ExtResource("2_n23yb")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=903292158]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer" unique_id=1861751844]
+layout_mode = 2
+split_offsets = PackedInt32Array(114)
+split_offset = 114
+
+[node name="Guy" type="TextureRect" parent="MarginContainer/HSplitContainer" unique_id=1243171672]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("3_0nste")
+
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer" unique_id=912514387]
+layout_mode = 2
+size_flags_vertical = 1
 
 [connection signal="timeout" from="CharacterTimer" to="." method="_on_character_timer_timeout"]
