@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://chmok0k3o5o3q"]
+
+[ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://dialogue_box.tscn" id="1_ig7tw"]
+
+[node name="Control" type="Control" unique_id=2054030712]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="." unique_id=1082772398 instance=ExtResource("1_ig7tw")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+offset_top = 0.015960693
+grow_vertical = 0

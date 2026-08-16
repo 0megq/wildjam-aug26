@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bv54iqaniy5fm"]
+
+[ext_resource type="Script" uid="uid://cw7vvd8ejur3x" path="res://dialogue_box.gd" id="1_senjy"]
+[ext_resource type="AudioStream" uid="uid://coomrlpvmw30q" path="res://arrow_hit_wall.wav" id="2_n23yb"]
+
+[node name="Control" type="PanelContainer" unique_id=1082772398]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_senjy")
+
+[node name="Label" type="Label" parent="." unique_id=912514387]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="CharacterTimer" type="Timer" parent="." unique_id=263439537]
+one_shot = true
+
+[node name="CharacterSound" type="AudioStreamPlayer" parent="." unique_id=119427711]
+stream = ExtResource("2_n23yb")
+
+[connection signal="timeout" from="CharacterTimer" to="." method="_on_character_timer_timeout"]
