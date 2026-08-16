@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://br40okq01lh6x"]
+
+[ext_resource type="Script" uid="uid://oqa1b0my0hvd" path="res://scripts/case_file.gd" id="1_lr8uf"]
+[ext_resource type="Texture2D" uid="uid://cyl3cocdkiqxt" path="res://folder-transparent-background_518192-2046-1478209580.jpg" id="2_4r7pf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0kmk"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkyq1"]
+font_size = 64
+
+[node name="CaseFile" type="Control" unique_id=1468501119]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lr8uf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139621905]
+layout_mode = 0
+offset_right = 2387.0
+offset_bottom = 873.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1930151797]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Choose a case:"
+label_settings = SubResource("LabelSettings_v0kmk")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=338498382]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=980047796]
+layout_mode = 2
+texture_normal = ExtResource("2_4r7pf")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton" unique_id=758315144]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 626.0
+offset_right = 627.0
+offset_bottom = 725.0
+text = "Case 1"
+label_settings = SubResource("LabelSettings_rkyq1")
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1455925172]
+layout_mode = 2
+texture_normal = ExtResource("2_4r7pf")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton2" unique_id=1442772148]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 626.0
+offset_right = 627.0
+offset_bottom = 725.0
+text = "Case 1"
+label_settings = SubResource("LabelSettings_rkyq1")
+horizontal_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1045461219]
+layout_mode = 2
+texture_normal = ExtResource("2_4r7pf")
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton3" unique_id=1978844287]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 626.0
+offset_right = 627.0
+offset_bottom = 725.0
+text = "Case 1"
+label_settings = SubResource("LabelSettings_rkyq1")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvfas87s2uvp1"]
 
-[ext_resource type="Script" uid="uid://dchnndsj5ry2w" path="res://option_popup.gd" id="1_4xk3h"]
+[ext_resource type="Script" uid="uid://dchnndsj5ry2w" path="res://scripts/option_popup.gd" id="1_4xk3h"]
 
 [node name="OptionPopup" type="ColorRect" unique_id=196373830]
 anchors_preset = 15
