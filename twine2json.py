@@ -1,24 +1,68 @@
 import io
 
+"""Offline processing script to convert twine story in .txt format into a json dictionary.
+This json is then read by a gdscript dictionary and converted into the in-game format.
+"""
+
+def log(msg):
+    pass
+
 def parse_twine(filename: str):
     with open(filename, "r") as file:
         content = file.read()
-        blocks = map(lambda block: block.strip(), filter(lambda block: len(block) > 0, content.split('::')))
+        # split content into blocks (filtering out empty blocks)
+        blocks = filter(
+            lambda block: len(block) > 0,
+            map(
+                lambda block: block.strip(),
+                content.split('::')
+            )
+        )
+
+        res = {}
         
         for block in blocks:
-            
-
             dialogId = -1
+
+            # get first word in block
             nextWord = block.split()[0]
             try:
+                # if it's a number, then we good
                 dialogId = int(nextWord)
             except:
-                print(f'skipping {nextWord}')
+                # if not, then throw it away
+                log(f'skipping {nextWord}')
                 continue
 
+            log(f'parsing {dialogId}')
+
+
+            dialogData = {}
+
+            # throw away the first line of the block, and remove any empty lines
+            lines = list(filter(
+                lambda line: len(line.strip()) > 0,
+                block.splitlines()[1:]
+            ))
+            
+            # assume the text is in the first line
+            dialogData["text"] = lines[0]
+
+            # remove the first line since we just processed it
+            lines = lines[1:]
+
+            dialogData["links"] = {}
             print(dialogId)
-            for line in block.splitlines()[1:]:
-                print(line)
+            for line in lines:
+                if line.find("set") == 1:
+                    pass
+                elif line.find("link") == 1:
+                    pass
+                
+
+            res[dialogId] = dialogData
+
+        print(res)
 
 
 
