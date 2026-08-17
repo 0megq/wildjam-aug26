@@ -1,0 +1,82 @@
+:: StoryTitle
+Case 1
+
+
+:: StoryData
+{
+  "ifid": "D9B19030-715A-4352-99AD-FF8FB4AA0F30",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "1",
+  "tag-colors": {
+    "startup": "yellow"
+  },
+  "zoom": 1
+}
+
+
+:: 1 {"position":"650,300","size":"100,100"}
+//You arrive in a quiet neighborhood at the edge of town. The buildings are older here, but every lawn in sight is pristine.//
+
+(link: "-->")[(go-to: "2")]
+
+
+:: 2 {"position":"650,425","size":"100,100"}
+//You briefly consider sampling some of the nearest lawn for a midday snack. But alas, you've been scolded for that once before. Your boss had called it "unprofessional".//
+
+(link: "-->")[(go-to: "3")]
+
+
+:: 3 {"position":"650,550","size":"100,100"}
+//You shake your head. Stay focused. You scan the area for the house number listed in the file. Ah, there it is.//
+
+(link: "Approach the door.") [ (goto: "4") ]
+
+
+:: 4 {"position":"650,675","size":"100,100"}
+//You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drifts the muffled sounds of music bumping.//
+(set: $background to "doorClosed") 
+
+(link: "Ring the doorbell.")[(go-to: "5")]
+
+
+:: 5 {"position":"650,800","size":"100,100"}
+//Ding dong!//
+
+(link: "-->")[(go-to: "6")]
+
+
+:: 6 {"position":"650,925","size":"100,100"}
+"Hello? Can I help you?"
+(set: $background to "doorOpen")
+(set: $speaker to "target")
+
+(link: "Introduce yourself.")[(go-to: "7")]
+
+
+:: 7 {"position":"650,1050","size":"100,100"}
+"Good afternoon! My name is Bullerton, from Holstein Collections Inc."
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+
+(link: "-->")[(go-to: "8")]
+
+
+:: 8 {"position":"650,1175","size":"100,100"}
+"We've been informed that you've been behind on your payments to the Hereford County Energy Department for a while, so I'm here to touch base with you about your options."
+
+(link: "-->")[(go-to: "9")]
+
+
+:: 9 {"position":"650,1300","size":"100,100"}
+"Oh, great. Just what I needed."
+(set: $targetSprite to "annoyed")
+(set: $speaker to "target")
+
+
+:: startup [startup] {"position":"650,175","size":"100,100"}
+(set: $agitation to 0)
+(set: $background to "streetView")
+(set: $speaker to "narrator")
+(set: $targetSprite to "neutral")
+(set: $bullSprite to "neutral")
