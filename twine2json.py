@@ -1,4 +1,4 @@
-import io
+import io, json
 
 """Offline processing script to convert twine story in .txt format into a json dictionary.
 This json is then read by a gdscript dictionary and converted into the in-game format.
@@ -8,6 +8,7 @@ def log(msg):
     pass
 
 def parse_twine(filename: str):
+    res = {}
     with open(filename, "r") as file:
         content = file.read()
         # split content into blocks (filtering out empty blocks)
@@ -18,8 +19,6 @@ def parse_twine(filename: str):
                 content.split('::')
             )
         )
-
-        res = {}
         
         for block in blocks:
             dialogId = -1
@@ -46,24 +45,42 @@ def parse_twine(filename: str):
             ))
             
             # assume the text is in the first line
-            dialogData["text"] = lines[0]
+            dialogData["text"] = lines[0].strip("\"/")
 
             # remove the first line since we just processed it
             lines = lines[1:]
 
-            dialogData["links"] = {}
-            print(dialogId)
+            dialogData["set"] = {}
+            dialogData["link"] = {}
+
             for line in lines:
                 if line.find("set") == 1:
-                    pass
+                    varIdx = line.find("$") + 1
+                    varEnd = line.find(" ", varIdx)
+                    variableName = line[varIdx:varEnd]
+
+                    valIdx = line.find("\"") + 1
+                    valEnd = line.find("\"", valIdx)
+                    val = line[valIdx:valEnd]
+
+                    dialogData["set"][variableName] = val
+                    
                 elif line.find("link") == 1:
-                    pass
-                
+                    textIdx = line.find("\"") + 1
+                    textEnd = line.find("\"", textIdx)
+                    textName = line[textIdx:textEnd]
+
+                    nextIdx = line.find("\"", textEnd + 1) + 1
+                    nextEnd = line.find("\"", nextIdx)
+                    nextName = line[nextIdx:nextEnd]
+
+                    dialogData["link"][textName] = nextName
+            
 
             res[dialogId] = dialogData
 
-        print(res)
-
+    with open(filename.split(".")[0] + ".json", "w") as resFile:
+        resFile.write((json.dumps(res, indent=4)))
 
 
 parse_twine("assets/Case1.txt")
