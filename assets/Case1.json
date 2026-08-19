@@ -1,0 +1,74 @@
+{
+	"1": {
+		"text": "You arrive in a quiet neighborhood at the edge of town. The buildings are older here, but every lawn in sight is pristine.",
+		"set": {},
+		"link": {
+			"-->": "2"
+		}
+	},
+	"2": {
+		"text": "You briefly consider sampling some of the nearest lawn for a midday snack. But alas, you've been scolded for that once before. Your boss had called it \"unprofessional\".",
+		"set": {},
+		"link": {
+			"-->": "3"
+		}
+	},
+	"3": {
+		"text": "You shake your head. Stay focused. You scan the area for the house number listed in the file. Ah, there it is.",
+		"set": {},
+		"link": {
+			"Approach the door.": "4"
+		}
+	},
+	"4": {
+		"text": "You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drifts the muffled sounds of music bumping.",
+		"set": {
+			"background": "doorClosed"
+		},
+		"link": {
+			"Ring the doorbell.": "5"
+		}
+	},
+	"5": {
+		"text": "Ding dong!",
+		"set": {},
+		"link": {
+			"-->": "6"
+		}
+	},
+	"6": {
+		"text": "Hello? Can I help you?",
+		"set": {
+			"background": "doorOpen",
+			"speaker": "target"
+		},
+		"link": {
+			"Introduce yourself.": "7"
+		}
+	},
+	"7": {
+		"text": "Good afternoon! My name is Bullerton, from Holstein Collections Inc.",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "8"
+		}
+	},
+	"8": {
+		"text": "We've been informed that you've been behind on your payments to the Hereford County Energy Department for a while, so I'm here to touch base with you about your options.",
+		"set": {},
+		"link": {
+			"-->": "9"
+		}
+	},
+	"9": {
+		"text": "Oh, great. Just what I needed.",
+		"set": {
+			"targetSprite": "annoyed",
+			"speaker": "target"
+		},
+		"link": {}
+	}
+}

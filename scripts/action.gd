@@ -15,19 +15,19 @@ class Option:
 		text = text0
 		aggro_points = aggro_points0
 
-var id: String
+var id: StringName
 var type: Type
 var get_next_action_id: Callable
 
 ## only makes sense when type is dialog
 var text: String
-var picture: Texture
-var background: int
+## maps the variable name (from twine) to the string value
+var setter_list: Dictionary
 
 ## only makes sense when type is OptionSelect
 var options: Array[Option]
 
-func set_next_action(id: String) -> void:
+func set_next_action(id: StringName) -> void:
 	get_next_action_id = func(): return id
 	
 func get_option_names() -> Array[String]:

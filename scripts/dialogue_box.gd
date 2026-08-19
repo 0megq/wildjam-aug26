@@ -18,12 +18,12 @@ func _ready() -> void:
 	hide()
 
 
-func text_display(text: String, picture: Texture) -> void:
+func text_display(text: String) -> void:
 	show()
 	label.visible_characters = 0
 	label.text = text
-	icon.visible = picture != null
-	icon.texture = picture
+	
+	## TODO: set icon texture and visiblity
 	
 	label.visible_characters += 1
 	character_sound.play()

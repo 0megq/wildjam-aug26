@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)
-	var next_action_id: String = current_action.get_next_action_id.call()
+	var next_action_id: StringName = current_action.get_next_action_id.call()
 	begin_action(next_action_id)
 
 
@@ -25,11 +25,11 @@ func _on_option_selected(number: int) -> void:
 	Story.current_aggro_points += current_action.options[number].aggro_points
 	
 	# choose next
-	var next_action_id: String = current_action.get_next_action_id.call(number)
+	var next_action_id: StringName = current_action.get_next_action_id.call(number)
 	begin_action(next_action_id)
 
 
-func get_action(id: String) -> Action:
+func get_action(id: StringName) -> Action:
 	var action: Action = Action.new()
 	action.id = id
 	# try to resolve using dict in story loader
@@ -38,12 +38,10 @@ func get_action(id: String) -> Action:
 		"DIALOG_01":
 			action.type = Action.Type.DIALOG
 			action.text = "hello this is dialog 1"
-			action.picture = DialogBox.GUY
 			action.set_next_action("OPTION_01")
 		"DIALOG_02":
 			action.type = Action.Type.DIALOG
 			action.text = "THIS DIOLOG 2WO"
-			action.picture = null
 			action.set_next_action("OPTION_01")
 		"OPTION_01":
 			action.type = Action.Type.OPTION_SELECT
@@ -61,12 +59,12 @@ func get_action(id: String) -> Action:
 	return action
 
 
-func begin_action(id: String) -> void:
+func begin_action(id: StringName) -> void:
 	current_action = get_action(id)
 	match current_action.type:
 		Action.Type.DIALOG:
 			dialogue_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
-			dialogue_box.text_display(current_action.text, current_action.picture)
+			dialogue_box.text_display(current_action.text)
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())
