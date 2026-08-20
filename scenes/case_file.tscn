@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://oqa1b0my0hvd" path="res://scripts/case_file.gd" id="1_lr8uf"]
 [ext_resource type="Texture2D" uid="uid://cyl3cocdkiqxt" path="res://folder-transparent-background_518192-2046-1478209580.jpg" id="2_4r7pf"]
+[ext_resource type="Script" uid="uid://kwof2vomctg" path="res://scripts/texture_button.gd" id="3_4r7pf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0kmk"]
-font_size = 128
+font_size = 96
 
 [sub_resource type="LabelSettings" id="LabelSettings_rkyq1"]
-font_size = 64
+font_size = 40
 
 [node name="CaseFile" type="Control" unique_id=1468501119]
 layout_mode = 3
@@ -20,8 +21,9 @@ script = ExtResource("1_lr8uf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139621905]
 layout_mode = 0
-offset_right = 2387.0
-offset_bottom = 873.0
+offset_right = 2872.4998
+offset_bottom = 1229.9999
+scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1930151797]
 layout_mode = 2
@@ -34,10 +36,14 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 300
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=980047796]
 layout_mode = 2
+size_flags_horizontal = 4
 texture_normal = ExtResource("2_4r7pf")
+texture_hover = ExtResource("2_4r7pf")
+script = ExtResource("3_4r7pf")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton" unique_id=758315144]
 layout_mode = 0
@@ -48,6 +54,7 @@ offset_bottom = 725.0
 text = "Case 1"
 label_settings = SubResource("LabelSettings_rkyq1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1455925172]
 layout_mode = 2
@@ -62,6 +69,7 @@ offset_bottom = 725.0
 text = "Case 1"
 label_settings = SubResource("LabelSettings_rkyq1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1045461219]
 layout_mode = 2
@@ -76,5 +84,6 @@ offset_bottom = 725.0
 text = "Case 1"
 label_settings = SubResource("LabelSettings_rkyq1")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

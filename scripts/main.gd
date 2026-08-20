@@ -3,6 +3,15 @@ class_name Main extends Control
 
 var current_action: Action
 
+#var cutscene_playing := false #make this into a global var
+var paused := false :
+	set(value):
+		#if cutscene_playing:
+		#	value = fals
+		paused = value
+		pause_menu.visible = value
+
+@onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var dialogue_box: DialogBox = $DialogueBox
 @onready var option_popup: ColorRect = $OptionPopup
 
@@ -10,7 +19,6 @@ var current_action: Action
 func _ready() -> void:
 	Story.aggro_points_changed.connect(func(value: int): $Label.text = "AP: %2d" % value)
 	begin_action("DIALOG_01")
-
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)
@@ -52,3 +60,10 @@ func begin_action(id: StringName) -> void:
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())
+	
+func _input(event:InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		paused = !paused
+
+func _on_pause_menu_resume_pressed() -> void:
+	paused = false
