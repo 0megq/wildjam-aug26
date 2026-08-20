@@ -1,12 +1,20 @@
 extends Node
 
+signal aggro_points_changed(value: int)
+
 var current_option_id: int = 1
 
 var current_aggro_points: int = 0 :
 	set(value):
 		current_aggro_points = value
-		$Label.text = "aggro: %d" % current_aggro_points
+		aggro_points_changed.emit(value)
 
+var action_data: Dictionary[StringName, Action]
+
+var bull_sprite: StringName = "neutral"
+var target_sprite: StringName = "neutral"
+var speaker: StringName = "narrator"
+var background: StringName = "background"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,12 +37,15 @@ func load_story() -> void:
 		action.setter_list = dialog_data["set"]
 		
 		var link_data: Dictionary = dialog_data["link"]
+		if link_data.size() == 0:
+			action.set_next_action("")
 		
-		var options: Dictionary[Action.Option, StringName]
+		var options: Dictionary[Action.Option, StringName]		
 		for link in link_data:
 			var next: StringName = "DIALOG_%02d" % int(link_data[link])
 			if (link == "-->"):
 				action.set_next_action(next)
+				action.wait_for_confirmation = true
 				break
 			options[Action.Option.new(link, 0)] = next
 			
@@ -48,10 +59,36 @@ func load_story() -> void:
 						return options.values()[i]
 			option_action.options = options.keys()
 			
+			action.set_next_action(option_action.id)
 			res[option_action.id] = option_action
 			current_option_id += 1
 		
 		# Otherwise, create new option selects using link name and go to
 		res[action.id] = action
 		
-	print(res)
+	action_data = res
+
+
+func apply_setter_list(list: Dictionary) -> void:
+	for variable in list:
+		var value: StringName = list[variable]
+		match variable:
+			"bullSprite":
+				bull_sprite = value
+			"targetSprite":
+				target_sprite = value
+			"speaker":
+				speaker = value
+			"background":
+				background = value
+			_:
+				printerr("unmatched variable in setter list \"%s\" with value \"%s\"" % [variable, value])
+
+func get_speaker_icon() -> Texture:
+	match speaker:
+		"bullerton":
+			return load("%s_%s.png" % [speaker, bull_sprite])
+		"target":
+			return load("%s_%s.png" % [speaker, target_sprite])
+		_:
+			return null

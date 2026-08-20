@@ -9,7 +9,7 @@ Case 1
   "format-version": "3.3.9",
   "start": "1",
   "tag-colors": {
-    "startup": "yellow"
+	"startup": "yellow"
   },
   "zoom": 1
 }

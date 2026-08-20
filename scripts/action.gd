@@ -23,6 +23,7 @@ var get_next_action_id: Callable
 var text: String
 ## maps the variable name (from twine) to the string value
 var setter_list: Dictionary
+var wait_for_confirmation: bool = false
 
 ## only makes sense when type is OptionSelect
 var options: Array[Option]

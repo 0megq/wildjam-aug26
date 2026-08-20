@@ -6,9 +6,9 @@ var current_action: Action
 @onready var dialogue_box: DialogBox = $DialogueBox
 @onready var option_popup: ColorRect = $OptionPopup
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Story.aggro_points_changed.connect(func(value: int): $Label.text = "AP: %2d" % value)
 	begin_action("DIALOG_01")
 
 
@@ -30,41 +30,25 @@ func _on_option_selected(number: int) -> void:
 
 
 func get_action(id: StringName) -> Action:
-	var action: Action = Action.new()
-	action.id = id
-	# try to resolve using dict in story loader
-	# otherwise use the match
-	match id:
-		"DIALOG_01":
-			action.type = Action.Type.DIALOG
-			action.text = "hello this is dialog 1"
-			action.set_next_action("OPTION_01")
-		"DIALOG_02":
-			action.type = Action.Type.DIALOG
-			action.text = "THIS DIOLOG 2WO"
-			action.set_next_action("OPTION_01")
-		"OPTION_01":
-			action.type = Action.Type.OPTION_SELECT
-			action.options = [
-				Action.Option.new("dialog 1 please", 5),
-				Action.Option.new("DIALOG 2 NOW", -2)
-			]
-			action.get_next_action_id = func(option_selected: int):
-				match option_selected:
-					0: return "DIALOG_01"
-					1: return "DIALOG_02"
-		
+	var action: Action
+	if Story.action_data.has(id):
+		action = Story.action_data[id]
 	
-	assert(action.type != Action.Type.NULL, "Action type not set")
 	return action
 
 
 func begin_action(id: StringName) -> void:
 	current_action = get_action(id)
+	if !current_action:
+		printerr("not a valid action id!")
+		return
 	match current_action.type:
 		Action.Type.DIALOG:
+			# Setters must be applied before we begin dialog, otherwise the picture will not be up-to-date
+			Story.apply_setter_list(current_action.setter_list)
+			
 			dialogue_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
-			dialogue_box.text_display(current_action.text)
+			dialogue_box.action_display(current_action)
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())

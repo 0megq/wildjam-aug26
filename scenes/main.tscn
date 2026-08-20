@@ -18,8 +18,8 @@ grow_vertical = 2
 script = ExtResource("1_jyhfs")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=768742073]
-position = Vector2(576.5, 321.25)
-scale = Vector2(1.6985294, 1.5782396)
+position = Vector2(721, 536.75)
+scale = Vector2(2.1235292, 2.6320295)
 texture = ExtResource("1_0wfyh")
 
 [node name="DialogueBox" parent="." unique_id=1082772398 instance=ExtResource("2_sugp2")]
