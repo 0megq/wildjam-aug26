@@ -30,6 +30,7 @@ func action_display(action: Action) -> void:
 	text_display(text)
 	# set picture
 	icon.texture = Story.get_speaker_icon()
+	icon.visible = icon.texture != null
 
 
 func text_display(text: String) -> void:

@@ -86,9 +86,9 @@ func apply_setter_list(list: Dictionary) -> void:
 
 func get_speaker_icon() -> Texture:
 	match speaker:
-		"bullerton":
-			return load("%s_%s.png" % [speaker, bull_sprite])
+		"bull":
+			return load("res://assets/pictures/%s_%s.png" % [speaker, bull_sprite])
 		"target":
-			return load("%s_%s.png" % [speaker, target_sprite])
+			return load("res://assets/pictures/%s_%s.png" % [speaker, target_sprite])
 		_:
 			return null

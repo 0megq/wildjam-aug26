@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0q7g3u8odl1c"
-path="res://.godot/imported/bullerton_suprised.png-6da30d5c916cfe940ec7ab41182f216f.ctex"
+uid="uid://cjkgp1bxqdoli"
+path="res://.godot/imported/bull_neutral.png-c501cfd30f704fb79817c1da0893e399.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pictures/bullerton_suprised.png"
-dest_files=["res://.godot/imported/bullerton_suprised.png-6da30d5c916cfe940ec7ab41182f216f.ctex"]
+source_file="res://assets/pictures/bull_neutral.png"
+dest_files=["res://.godot/imported/bull_neutral.png-c501cfd30f704fb79817c1da0893e399.ctex"]
 
 [params]
 
