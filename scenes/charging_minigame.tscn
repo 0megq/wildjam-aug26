@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b0jqt7a3vhgg2"]
+
+[ext_resource type="Script" uid="uid://d8wgdsoql6fq" path="res://scripts/charging_minigame.gd" id="1_gsmh4"]
+[ext_resource type="Texture2D" uid="uid://0hloramxw3j1" path="res://reticle.png" id="1_uf0w2"]
+[ext_resource type="Texture2D" uid="uid://0wtkr1cio7co" path="res://isolated-surprised-man-against-transparent-background-free-png-1876641575.png" id="3_fd6my"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0kmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0kmk"]
+radius = 24.0
+
+[node name="ChargingMinigame" type="Node2D" unique_id=749736898]
+script = ExtResource("1_gsmh4")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1471122092]
+
+[node name="Target" type="Area2D" parent="." unique_id=618617445]
+position = Vector2(760, 540)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Target" unique_id=1455002950]
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("3_fd6my")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=240911179]
+scale = Vector2(8.575, 8.575)
+shape = SubResource("CapsuleShape2D_v0kmk")
+metadata/_edit_lock_ = true
+
+[node name="Reticle" type="Area2D" parent="." unique_id=508132530]
+
+[node name="Sprite2D" type="Sprite2D" parent="Reticle" unique_id=101445033]
+z_index = 1
+texture = ExtResource("1_uf0w2")
+
+[node name="ProgressBar" type="ProgressBar" parent="Reticle" unique_id=758906849]
+offset_top = 50.0
+offset_right = 100.0
+offset_bottom = 77.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reticle" unique_id=1645165728]
+shape = SubResource("CircleShape2D_v0kmk")
+
+[connection signal="area_entered" from="Target" to="." method="_on_target_area_entered"]
+[connection signal="area_exited" from="Target" to="." method="_on_target_area_exited"]
