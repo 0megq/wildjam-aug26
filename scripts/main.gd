@@ -94,11 +94,15 @@ func begin_action(id: StringName) -> void:
 					get_tree().create_timer(2).timeout.connect($CarSound.play)
 					get_tree().create_timer(4).timeout.connect(_on_story_start_ready)
 				"ENDING_1":
+					Story.current_aggro_points = 0
+					$AggroBar.hide()
 					$VictorySound.play()
 					$DialogueBox.hide()
 					Story.background = "ending1"
 					do_ending_transition()
 				"ENDING_2":
+					$AggroBar.hide()
+					Story.current_aggro_points = 0
 					begin_action.call_deferred("ENDING_2_COMPLETE")
 				"ENDING_2_COMPLETE":
 					$VictorySound.play()
@@ -106,6 +110,8 @@ func begin_action(id: StringName) -> void:
 					Story.background = "ending2"
 					do_ending_transition()
 				"ENDING_3":
+					$AggroBar.hide()
+					Story.current_aggro_points = 0
 					$VictorySound.play()
 					$DialogueBox.hide()
 					Story.background = "ending3"

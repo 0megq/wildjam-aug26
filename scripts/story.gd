@@ -194,6 +194,7 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.wait_for_confirmation = true
 	action.text = "[i]You head back to the office.[/i]"
 	action.setter_list["background"] = "black"
+	action.setter_list["speaker"] = "narrator"
 	action.set_next_action("DRIVING_BACK")
 	input[action.id] = action
 	

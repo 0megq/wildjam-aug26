@@ -9,7 +9,7 @@ Case 1
   "format-version": "3.3.9",
   "start": "1",
   "tag-colors": {
-	"startup": "yellow"
+    "startup": "yellow"
   },
   "zoom": 1
 }
@@ -771,7 +771,7 @@ Case 1
 
 
 :: 94 {"position":"800,6075","size":"100,100"}
-(set: $bullSprite to "neutral")
+(set: $bullSprite to "shocked")
 (set: $speaker to "bull")
 "I- nobody's ever said something like that to me before..."
 
