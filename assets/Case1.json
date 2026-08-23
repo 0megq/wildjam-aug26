@@ -1,996 +1,996 @@
 {
-    "1": {
-        "text": "[i]You arrive in a quiet neighborhood at the edge of town. The buildings are older here, but every lawn in sight is pristine.[/i]",
-        "set": {},
-        "link": {
-            "-->": "2"
-        }
-    },
-    "10": {
-        "text": "\"Why don't you go touch some grass, huh? Try not to eat it all while you're at it.\"",
-        "set": {},
-        "link": {
-            "Keep the peace.": "11",
-            "Dish it back.": "41"
-        }
-    },
-    "100": {
-        "text": "\"Who you calling little fishy, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!\"",
-        "set": {
-            "speaker": "target",
-            "agitation": "70"
-        },
-        "link": {
-            "-->": "77"
-        }
-    },
-    "101": {
-        "text": "\"I wasn't trying to tell you to do anything, really- I just think we should both take a step back, and-\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "102"
-        }
-    },
-    "102": {
-        "text": "\"Oh it's [i]WAY[/i] too late to step back now. Actually, I take that back. I'll take a few steps back. All you have to do is stand still.\"",
-        "set": {
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "103"
-        }
-    },
-    "103": {
-        "text": "\"What? Wait... WAIT-\"",
-        "set": {
-            "speaker": "target",
-            "agitation": "100"
-        },
-        "link": {
-            "Charge.": "Charge Minigame"
-        }
-    },
-    "11": {
-        "text": "\"Haha, I admittedly did consider it. You have a very nice lawn.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull",
-            "agitation": "it-10"
-        },
-        "link": {
-            "-->": "12"
-        }
-    },
-    "12": {
-        "text": "\"Hmph. I put a lot of work into it. Not that it should matter to you.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "Be professional.": "13",
-            "Be vulnerable.": "14"
-        }
-    },
-    "13": {
-        "text": "\"Mm, true. As much as I'd like to ask you for lawn care tips, I do have a job to do. I'd like to discuss some payment plan options with you, if that's alright.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "15"
-        }
-    },
-    "14": {
-        "text": "\"Look, I don't want to be here either. But I have a job to do, and I'm trying to make it as little trouble as possible for both of us. I'm supposed to tell you about payment plans now, if that's alright.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "15"
-        }
-    },
-    "15": {
-        "text": "\"Well, you're committed. I'll give you that. Fine, shoot.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "16"
-        }
-    },
-    "16": {
-        "text": "\"Great! We have a wide array of options available, but the first order of business is confirming the amount you owe. According to the Hereford County Energy Department, you owe a total of 130,987 doubloons. The breakdown of that amount is documented in this report.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "Hold the report up.": "17",
-            "Hand over the report.": "18"
-        }
-    },
-    "17": {
-        "text": "\"130,000... That sounds about right. It's been a rough year. I suppose I cut more corners than I could get away with.\"",
-        "set": {
-            "targetSprite": "shy",
-            "speaker": "target",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "20"
-        }
-    },
-    "18": {
-        "text": "[i]Fish fins are not particularly suited for handling pieces of paper. The debt report flutters to the ground.[/i]",
-        "set": {
-            "speaker": "narrator",
-            "targetSprite": "angry",
-            "agitation": "it+30"
-        },
-        "link": {
-            "-->": "19"
-        }
-    },
-    "19": {
-        "text": "\"Is this some kind of sick joke?\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "40"
-        }
-    },
-    "2": {
-        "text": "[i]You briefly consider sampling some of the nearest lawn for a midday snack. But alas, you've been scolded for that once before. Your boss had called it \"unprofessional\".[/i]",
-        "set": {},
-        "link": {
-            "-->": "3"
-        }
-    },
-    "20": {
-        "text": "\"I get that. I'll try to help however I can.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "21"
-        }
-    },
-    "21": {
-        "text": "\"We can work together to craft a payment plan that works best for you. This will depend on your monthly expenses and how much you can realistically repay each month. From there, we'll determine the time frame needed to settle the outstanding amount. Given your positive payment history outside of the current situation, I imagine the approval process will be straightforward.\"",
-        "set": {
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "22"
-        }
-    },
-    "22": {
-        "text": "\"You also have the option of consulting a credit counselor throughout this process to help guide you through budgeting. I can leave you with referrals to a few in town. However, Holstein Collections Inc. prides itself on its state-of-the-art data analytics and predictive modeling. We can help structure your optimal payment plan and get you debt free as soon as possible. I'll help get you set up with our client portal to ensure that you receive all the necessary communications throughout this process, and that you always have someone to talk to if you have any questions. I have a budgeting worksheet on hand for you to take a look at. You can also find it in the portal, along with additional bookkeeping documents that will require your signature. Things like acknowledgement of communication with us, acknowledgement of the amount owed, et cetera.\"",
-        "set": {
-            "fishSprite": "upset",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "23"
-        }
-    },
-    "23": {
-        "text": "\"Fish jesus fucking fish christ...\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "24"
-        }
-    },
-    "24": {
-        "text": "\"Oh, sorry. I got a bit carried away.\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "Get back on track.": "37",
-            "Open up about your childhood trauma.": "25"
-        }
-    },
-    "25": {
-        "text": "\"My parents never listened to me much growing up, so I suppose I got used to talking a lot and nobody caring.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "26"
-        }
-    },
-    "26": {
-        "text": "\"Maybe that's why I'm such a people-pleaser. I'm used to overlooking my own needs to chase the smallest scrap of acknowledgement and approval...\"",
-        "set": {
-            "bullSprite": "neutral",
-            "targetSprite": "upset",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "27"
-        }
-    },
-    "27": {
-        "text": "\"Yeah cool story man, just tell me where to sign.\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "28"
-        }
-    },
-    "28": {
-        "text": "\"Oh- wait, really?\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull",
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "29"
-        }
-    },
-    "29": {
-        "text": "\"Will that get you to shut up?\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "30"
-        }
-    },
-    "3": {
-        "text": "[i]You shake your head. Stay focused. You scan the area for the house number listed in the file. Ah, there it is.[/i]",
-        "set": {},
-        "link": {
-            "Approach the door.": "4"
-        }
-    },
-    "30": {
-        "text": "\"...Yes?\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "31"
-        }
-    },
-    "31": {
-        "text": "\"Then I'll sign.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target",
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "32"
-        }
-    },
-    "32": {
-        "text": "\"...Great! The client portal access information is listed here. Once everything in there is set up and signed, I'll reach out and we can discuss your next steps.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "33"
-        }
-    },
-    "33": {
-        "text": "\"Fine, whatever.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "Ending 1"
-        }
-    },
-    "37": {
-        "text": "\"But back to the topic at hand. As mentioned previously, your positive payment history outside of the current situation gives me high hopes for your approval chances, particularly approval for a payment plan with a lower interest rate.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "38"
-        }
-    },
-    "38": {
-        "text": "[i]Bullerton proceeds to rant about payment plans to such an outrageously thorough extent that the writer gave up entirely on writing it out, opting for a cheap 4th wall break instead.[/i]",
-        "set": {
-            "speaker": "narrator",
-            "targetSprite": "upset",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "39"
-        }
-    },
-    "39": {
-        "text": "\"...Are you done?\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "60"
-        }
-    },
-    "4": {
-        "text": "[i]You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music..[/i]",
-        "set": {
-            "background": "doorClosed"
-        },
-        "link": {
-            "Ring the doorbell.": "5"
-        }
-    },
-    "40": {
-        "text": "\"I'm so sorry! I wasn't thinking-\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "69"
-        }
-    },
-    "41": {
-        "text": "\"Heh, maybe I will. Honestly, I'm surprised you have grass out front and not kelp.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "42"
-        }
-    },
-    "42": {
-        "text": "\"Oh, how extraordinarily creative of you. Where did you say you worked again?\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "43"
-        }
-    },
-    "43": {
-        "text": "\"Holstein Collections Inc. I'm here because you, sir, are a total of 130,987 doubloons in debt. It's my job to make sure that debt gets settled as painlessly as possible for both of us.\"",
-        "set": {
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "44"
-        }
-    },
-    "44": {
-        "text": "\"Hmph. I don't know what you're talking about.\"",
-        "set": {
-            "speaker": "target",
-            "agitation": "it+5"
-        },
-        "link": {
-            "Stay on script.": "45",
-            "Refer to your own excrement.": "50"
-        }
-    },
-    "45": {
-        "text": "\"Is that so? Well, I'd be happy to sit down with you and walk you through the charges.\"",
-        "set": {
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "46"
-        }
-    },
-    "46": {
-        "text": "\"Ha! Nice try. But I'm afraid I don't have the time nor the patience to listen to you any longer.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "47"
-        }
-    },
-    "47": {
-        "text": "\"I figured you'd say that. Thankfully, in addition to eating grass, we bulls are known to be extraordinarily stubborn. I'd be happy to come back another day. And another. And another.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "48"
-        }
-    },
-    "48": {
-        "text": "\"You don't know when to quit, do you?\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "49"
-        }
-    },
-    "49": {
-        "text": "\"Oh I do. But that time is not now. So, what'll it be?\"",
-        "set": {
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "53"
-        }
-    },
-    "5": {
-        "text": "[i]Ding dong![/i]",
-        "set": {},
-        "link": {
-            "-->": "6"
-        }
-    },
-    "50": {
-        "text": "\"Bullshit.\"",
-        "set": {
-            "bullSprite": "upset",
-            "speaker": "bull",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "51"
-        }
-    },
-    "51": {
-        "text": "\"Excuse me??\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "52"
-        }
-    },
-    "52": {
-        "text": "\"You heard me. Don't think you can get out of this by playing dumb. I have your debt report right here.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "48"
-        }
-    },
-    "53": {
-        "text": "\"...\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "54"
-        }
-    },
-    "54": {
-        "text": "\"You know what? No! I'm not giving you the time of day. I'll take my chances with whatever the energy department thinks they can throw at me.\"",
-        "set": {
-            "targetSprite": "upset",
-            "agitation": "it+5"
-        },
-        "link": {
-            "Ease up.": "56",
-            "Stand firm.": "55"
-        }
-    },
-    "55": {
-        "text": "\"Haha! Unfortunately, they threw me at you. And I'm not going anywhere.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "62"
-        }
-    },
-    "56": {
-        "text": "\"I [i]am[/i] what the energy department threw at you. I don't want to be here any more than you do, believe me.\"",
-        "set": {
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "57"
-        }
-    },
-    "57": {
-        "text": "\"It'll be a lot easier on both of us if you at least listen to what I have to say.\"",
-        "set": {
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "58"
-        }
-    },
-    "58": {
-        "text": "\"...Fine. Say what you need to say, if that'll get you outta my scales faster.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "59"
-        }
-    },
-    "59": {
-        "text": "\"Great. I'll make it quick.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "38"
-        }
-    },
-    "6": {
-        "text": "\"Hello? Can I help you?\"",
-        "set": {
-            "background": "doorOpen",
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "Introduce yourself.": "7"
-        }
-    },
-    "60": {
-        "text": "\"That about covers everything, yes.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "61"
-        }
-    },
-    "61": {
-        "text": "\"[i]Sigh.[/i] Alright, fine. Just tell me where to sign.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target",
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "28"
-        }
-    },
-    "62": {
-        "text": "\"Oh yeah? How about I call my lawyer and see what she has to say about that?\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "63"
-        }
-    },
-    "63": {
-        "text": "\"You're well within your rights to do that, but it won't change the outcome.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "64"
-        }
-    },
-    "64": {
-        "text": "\"How about we see the outcome of me throwing these fins in your face, huh?\"",
-        "set": {
-            "targetSprite": "angry",
-            "speaker": "target",
-            "agitation": "it+5"
-        },
-        "link": {
-            "Calm things down.": "66",
-            "Fry this guy.": "65"
-        }
-    },
-    "65": {
-        "text": "\"I'd like to see that outcome too actually. Go ahead.\"",
-        "set": {
-            "bullSprite": "upset",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "97"
-        }
-    },
-    "66": {
-        "text": "\"Whoa, whoa. Let's try not to end this in violence-\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "67"
-        }
-    },
-    "67": {
-        "text": "\"Look, I'm sorry. We got off on the wrong foot. Er, fin. I really am trying to help you.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it-5"
-        },
-        "link": {
-            "-->": "74"
-        }
-    },
-    "69": {
-        "text": "\"Dam right you weren't thinking! I give you the time out of my day and this is how you treat me? Why am I still talking to you? Get off my porch. And don't touch my lawn!\"",
-        "set": {
-            "speaker": "target",
-            "agitation": "it+5"
-        },
-        "link": {
-            "Continue apologizing profusely.": "70",
-            "Stand up for yourself.": "71"
-        }
-    },
-    "7": {
-        "text": "\"Good afternoon! My name is Bullerton, from Holstein Collections Inc.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "8"
-        }
-    },
-    "70": {
-        "text": "\"I really am terribly sorry. I meant no offense.\"",
-        "set": {
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "73"
-        }
-    },
-    "71": {
-        "text": "\"Okay- I know we bulls are known for eating grass, but we do have self-restraint, you know.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "72"
-        }
-    },
-    "72": {
-        "text": "\"Well you should have restrained yourself from hassling me! Did you think about that?\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "67"
-        }
-    },
-    "73": {
-        "text": "\"You should have thought about avoiding offense before you came banging on my door! Did you think about that?\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "67"
-        }
-    },
-    "74": {
-        "text": "\"I don't want your help! Have I not made that abundantly clear??\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "75"
-        }
-    },
-    "75": {
-        "text": "\"I understand that, but if you would just allow me to leave some resources here with you-\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "76"
-        }
-    },
-    "76": {
-        "text": "\"I'm not at all interested in your resources, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!\"",
-        "set": {
-            "targetSprite": "angry",
-            "speaker": "target",
-            "agitation": "60"
-        },
-        "link": {
-            "-->": "77"
-        }
-    },
-    "77": {
-        "text": "\"...\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "78"
-        }
-    },
-    "78": {
-        "text": "\"So you're gonna be like that, huh?\"",
-        "set": {
-            "bullSprite": "upset",
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "79"
-        }
-    },
-    "79": {
-        "text": "\"You're gonna stoop that low?\"",
-        "set": {
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "80"
-        }
-    },
-    "8": {
-        "text": "\"We've been informed that you've been behind on your payments to the Hereford County Energy Department for a while, so I'm here to touch base with you about your options.\"",
-        "set": {},
-        "link": {
-            "-->": "9"
-        }
-    },
-    "80": {
-        "text": "\"I- wait-\"",
-        "set": {
-            "targetSprite": "shocked",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "81"
-        }
-    },
-    "81": {
-        "text": "\"I did try to do things the nice way first, but I can play dirty too.\"",
-        "set": {
-            "speaker": "bull",
-            "agitation": "80"
-        },
-        "link": {
-            "-->": "82"
-        }
-    },
-    "82": {
-        "text": "\"Wait wait, I'm sorry- I didn't mean that. Let's just... both take a breath.\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "Chill out.": "83",
-            "RRAAAHHHHHH": "84"
-        }
-    },
-    "83": {
-        "text": "\"...You're right. This isn't productive. I'm sorry.\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull",
-            "agitation": "it-20"
-        },
-        "link": {
-            "-->": "85"
-        }
-    },
-    "84": {
-        "text": "\"DON'T TELL ME HOW TO BREATHE!\"",
-        "set": {
-            "bullSprite": "angry",
-            "speaker": "bull",
-            "agitation": "it+10"
-        },
-        "link": {
-            "-->": "101"
-        }
-    },
-    "85": {
-        "text": "\"...It's alright. I was hostile for no reason.\"",
-        "set": {
-            "targetSprite": "shy",
-            "speaker": "target",
-            "agitation": "it-10"
-        },
-        "link": {
-            "-->": "86"
-        }
-    },
-    "86": {
-        "text": "\"I'm supposed to be working on my anger management, but... It's harder than I thought.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it-10"
-        },
-        "link": {
-            "-->": "87"
-        }
-    },
-    "87": {
-        "text": "\"I get that. Good on you for working on it though.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target",
-            "agitation": "it-10"
-        },
-        "link": {
-            "-->": "88"
-        }
-    },
-    "88": {
-        "text": "\"Thanks. It means a lot.\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull",
-            "agitation": "it-10"
-        },
-        "link": {
-            "-->": "89"
-        }
-    },
-    "89": {
-        "text": "\"I- sorry, can I be completely honest with you?\"",
-        "set": {
-            "targetSprite": "shy",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "90"
-        }
-    },
-    "9": {
-        "text": "\"Oh, great. Just what I needed.\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target",
-            "agitation": "it+20"
-        },
-        "link": {
-            "-->": "10"
-        }
-    },
-    "90": {
-        "text": "\"Sure?\"",
-        "set": {
-            "bullSprite": "neutral",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "91"
-        }
-    },
-    "91": {
-        "text": "\"That was... kinda hot.\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "92"
-        }
-    },
-    "92": {
-        "text": "\"Oh?\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "93"
-        }
-    },
-    "93": {
-        "text": "\"Ever since I moved on land, I've had a hard time connecting with people. But just now... the tension... I haven't felt a rush like that in years.\"",
-        "set": {
-            "targetSprite": "neutral",
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "94"
-        }
-    },
-    "94": {
-        "text": "\"I- nobody's ever said something like that to me before...\"",
-        "set": {
-            "bullSprite": "shocked",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "95"
-        }
-    },
-    "95": {
-        "text": "\"Well, if you want, I have drinks in the fridge. I could say a lot more to you, if you'd like. And you could tell me all about your payment plans too.\"",
-        "set": {
-            "speaker": "target"
-        },
-        "link": {
-            "-->": "96"
-        }
-    },
-    "96": {
-        "text": "\"That sounds nice, actually. I'll take you up on that.\"",
-        "set": {
-            "bullSprite": "cheery",
-            "speaker": "bull"
-        },
-        "link": {
-            "-->": "Ending 3"
-        }
-    },
-    "97": {
-        "text": "\"Let me get my lawyer on the line right now. She'll wanna watch this, I'm sure.\"",
-        "set": {
-            "targetSprite": "upset",
-            "speaker": "target"
-        },
-        "link": {
-            "Egg him on.": "98",
-            "Call his bluff.": "99"
-        }
-    },
-    "98": {
-        "text": "\"Oh, we have an audience now too? You must [i]really[/i] want to get filleted, little fishy.\"",
-        "set": {
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "100"
-        }
-    },
-    "99": {
-        "text": "\"You sure you wanna go through with this, little fishy? You don't seem the type.\"",
-        "set": {
-            "speaker": "bull",
-            "agitation": "it+5"
-        },
-        "link": {
-            "-->": "100"
-        }
-    }
+	"1": {
+		"text": "[i]You arrive in a quiet neighborhood at the edge of town. The buildings are older here, but every lawn in sight is pristine.[/i]",
+		"set": {},
+		"link": {
+			"-->": "2"
+		}
+	},
+	"10": {
+		"text": "\"Why don't you go touch some grass, huh? Try not to eat it all while you're at it.\"",
+		"set": {},
+		"link": {
+			"Keep the peace.": "11",
+			"Dish it back.": "41"
+		}
+	},
+	"100": {
+		"text": "\"Who you calling little fishy, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!\"",
+		"set": {
+			"speaker": "target",
+			"agitation": "70"
+		},
+		"link": {
+			"-->": "77"
+		}
+	},
+	"101": {
+		"text": "\"I wasn't trying to tell you to do anything, really- I just think we should both take a step back, and-\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "102"
+		}
+	},
+	"102": {
+		"text": "\"Oh it's [i]WAY[/i] too late to step back now. Actually, I take that back. I'll take a few steps back. All you have to do is stand still.\"",
+		"set": {
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "103"
+		}
+	},
+	"103": {
+		"text": "\"What? Wait... WAIT-\"",
+		"set": {
+			"speaker": "target",
+			"agitation": "100"
+		},
+		"link": {
+			"Charge.": "Charge Minigame"
+		}
+	},
+	"11": {
+		"text": "\"Haha, I admittedly did consider it. You have a very nice lawn.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull",
+			"agitation": "it-10"
+		},
+		"link": {
+			"-->": "12"
+		}
+	},
+	"12": {
+		"text": "\"Hmph. I put a lot of work into it. Not that it should matter to you.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"Be professional.": "13",
+			"Be vulnerable.": "14"
+		}
+	},
+	"13": {
+		"text": "\"Mm, true. As much as I'd like to ask you for lawn care tips, I do have a job to do. I'd like to discuss some payment plan options with you, if that's alright.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "15"
+		}
+	},
+	"14": {
+		"text": "\"Look, I don't want to be here either. But I have a job to do, and I'm trying to make it as little trouble as possible for both of us. I'm supposed to tell you about payment plans now, if that's alright.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "15"
+		}
+	},
+	"15": {
+		"text": "\"Well, you're committed. I'll give you that. Fine, shoot.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "16"
+		}
+	},
+	"16": {
+		"text": "\"Great! We have a wide array of options available, but the first order of business is confirming the amount you owe. According to the Hereford County Energy Department, you owe a total of 130,987 doubloons. The breakdown of that amount is documented in this report.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"Hold the report up.": "17",
+			"Hand over the report.": "18"
+		}
+	},
+	"17": {
+		"text": "\"130,000... That sounds about right. It's been a rough year. I suppose I cut more corners than I could get away with.\"",
+		"set": {
+			"targetSprite": "shy",
+			"speaker": "target",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "20"
+		}
+	},
+	"18": {
+		"text": "[i]Fish fins are not particularly suited for handling pieces of paper. The debt report flutters to the ground.[/i]",
+		"set": {
+			"speaker": "narrator",
+			"targetSprite": "angry",
+			"agitation": "it+30"
+		},
+		"link": {
+			"-->": "19"
+		}
+	},
+	"19": {
+		"text": "\"Is this some kind of sick joke?\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "40"
+		}
+	},
+	"2": {
+		"text": "[i]You briefly consider sampling some of the nearest lawn for a midday snack. But alas, you've been scolded for that once before. Your boss had called it \"unprofessional\".[/i]",
+		"set": {},
+		"link": {
+			"-->": "3"
+		}
+	},
+	"20": {
+		"text": "\"I get that. I'll try to help however I can.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "21"
+		}
+	},
+	"21": {
+		"text": "\"We can work together to craft a payment plan that works best for you. This will depend on your monthly expenses and how much you can realistically repay each month. From there, we'll determine the time frame needed to settle the outstanding amount. Given your positive payment history outside of the current situation, I imagine the approval process will be straightforward.\"",
+		"set": {
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "22"
+		}
+	},
+	"22": {
+		"text": "\"You also have the option of consulting a credit counselor throughout this process to help guide you through budgeting. I can leave you with referrals to a few in town. However, Holstein Collections Inc. prides itself on its state-of-the-art data analytics and predictive modeling. We can help structure your optimal payment plan and get you debt free as soon as possible. I'll help get you set up with our client portal to ensure that you receive all the necessary communications throughout this process, and that you always have someone to talk to if you have any questions. I have a budgeting worksheet on hand for you to take a look at. You can also find it in the portal, along with additional bookkeeping documents that will require your signature. Things like acknowledgement of communication with us, acknowledgement of the amount owed, et cetera.\"",
+		"set": {
+			"fishSprite": "upset",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "23"
+		}
+	},
+	"23": {
+		"text": "\"Fish jesus fucking fish christ...\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "24"
+		}
+	},
+	"24": {
+		"text": "\"Oh, sorry. I got a bit carried away.\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"Get back on track.": "37",
+			"Open up about your childhood trauma.": "25"
+		}
+	},
+	"25": {
+		"text": "\"My parents never listened to me much growing up, so I suppose I got used to talking a lot and nobody caring.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "26"
+		}
+	},
+	"26": {
+		"text": "\"Maybe that's why I'm such a people-pleaser. I'm used to overlooking my own needs to chase the smallest scrap of acknowledgement and approval...\"",
+		"set": {
+			"bullSprite": "neutral",
+			"targetSprite": "upset",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "27"
+		}
+	},
+	"27": {
+		"text": "\"Yeah cool story man, just tell me where to sign.\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "28"
+		}
+	},
+	"28": {
+		"text": "\"Oh- wait, really?\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull",
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "29"
+		}
+	},
+	"29": {
+		"text": "\"Will that get you to shut up?\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "30"
+		}
+	},
+	"3": {
+		"text": "[i]You shake your head. Stay focused. You scan the area for the house number listed in the file. Ah, there it is.[/i]",
+		"set": {},
+		"link": {
+			"Approach the door.": "4"
+		}
+	},
+	"30": {
+		"text": "\"...Yes?\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "31"
+		}
+	},
+	"31": {
+		"text": "\"Then I'll sign.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target",
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "32"
+		}
+	},
+	"32": {
+		"text": "\"...Great! The client portal access information is listed here. Once everything in there is set up and signed, I'll reach out and we can discuss your next steps.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "33"
+		}
+	},
+	"33": {
+		"text": "\"Fine, whatever.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "Ending 1"
+		}
+	},
+	"37": {
+		"text": "\"But back to the topic at hand. As mentioned previously, your positive payment history outside of the current situation gives me high hopes for your approval chances, particularly approval for a payment plan with a lower interest rate.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "38"
+		}
+	},
+	"38": {
+		"text": "[i]Bullerton proceeds to rant about payment plans to such an outrageously thorough extent that the writer gave up entirely on writing it out, opting for a cheap 4th wall break instead.[/i]",
+		"set": {
+			"speaker": "narrator",
+			"targetSprite": "upset",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "39"
+		}
+	},
+	"39": {
+		"text": "\"...Are you done?\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "60"
+		}
+	},
+	"4": {
+		"text": "[i]You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music..[/i]",
+		"set": {
+			"background": "doorClosed"
+		},
+		"link": {
+			"Ring the doorbell.": "5"
+		}
+	},
+	"40": {
+		"text": "\"I'm so sorry! I wasn't thinking-\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "69"
+		}
+	},
+	"41": {
+		"text": "\"Heh, maybe I will. Honestly, I'm surprised you have grass out front and not kelp.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "42"
+		}
+	},
+	"42": {
+		"text": "\"Oh, how extraordinarily creative of you. Where did you say you worked again?\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "43"
+		}
+	},
+	"43": {
+		"text": "\"Holstein Collections Inc. I'm here because you, sir, are a total of 130,987 doubloons in debt. It's my job to make sure that debt gets settled as painlessly as possible for both of us.\"",
+		"set": {
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "44"
+		}
+	},
+	"44": {
+		"text": "\"Hmph. I don't know what you're talking about.\"",
+		"set": {
+			"speaker": "target",
+			"agitation": "it+5"
+		},
+		"link": {
+			"Stay on script.": "45",
+			"Refer to your own excrement.": "50"
+		}
+	},
+	"45": {
+		"text": "\"Is that so? Well, I'd be happy to sit down with you and walk you through the charges.\"",
+		"set": {
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "46"
+		}
+	},
+	"46": {
+		"text": "\"Ha! Nice try. But I'm afraid I don't have the time nor the patience to listen to you any longer.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "47"
+		}
+	},
+	"47": {
+		"text": "\"I figured you'd say that. Thankfully, in addition to eating grass, we bulls are known to be extraordinarily stubborn. I'd be happy to come back another day. And another. And another.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "48"
+		}
+	},
+	"48": {
+		"text": "\"You don't know when to quit, do you?\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "49"
+		}
+	},
+	"49": {
+		"text": "\"Oh I do. But that time is not now. So, what'll it be?\"",
+		"set": {
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "53"
+		}
+	},
+	"5": {
+		"text": "[i]Ding dong![/i]",
+		"set": {},
+		"link": {
+			"-->": "6"
+		}
+	},
+	"50": {
+		"text": "\"Bullshit.\"",
+		"set": {
+			"bullSprite": "upset",
+			"speaker": "bull",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "51"
+		}
+	},
+	"51": {
+		"text": "\"Excuse me??\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "52"
+		}
+	},
+	"52": {
+		"text": "\"You heard me. Don't think you can get out of this by playing dumb. I have your debt report right here.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "48"
+		}
+	},
+	"53": {
+		"text": "\"...\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "54"
+		}
+	},
+	"54": {
+		"text": "\"You know what? No! I'm not giving you the time of day. I'll take my chances with whatever the energy department thinks they can throw at me.\"",
+		"set": {
+			"targetSprite": "upset",
+			"agitation": "it+5"
+		},
+		"link": {
+			"Ease up.": "56",
+			"Stand firm.": "55"
+		}
+	},
+	"55": {
+		"text": "\"Haha! Unfortunately, they threw me at you. And I'm not going anywhere.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "62"
+		}
+	},
+	"56": {
+		"text": "\"I [i]am[/i] what the energy department threw at you. I don't want to be here any more than you do, believe me.\"",
+		"set": {
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "57"
+		}
+	},
+	"57": {
+		"text": "\"It'll be a lot easier on both of us if you at least listen to what I have to say.\"",
+		"set": {
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "58"
+		}
+	},
+	"58": {
+		"text": "\"...Fine. Say what you need to say, if that'll get you outta my scales faster.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "59"
+		}
+	},
+	"59": {
+		"text": "\"Great. I'll make it quick.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "38"
+		}
+	},
+	"6": {
+		"text": "\"Hello? Can I help you?\"",
+		"set": {
+			"background": "doorOpen",
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"Introduce yourself.": "7"
+		}
+	},
+	"60": {
+		"text": "\"That about covers everything, yes.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "61"
+		}
+	},
+	"61": {
+		"text": "\"[i]Sigh.[/i] Alright, fine. Just tell me where to sign.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target",
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "28"
+		}
+	},
+	"62": {
+		"text": "\"Oh yeah? How about I call my lawyer and see what she has to say about that?\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "63"
+		}
+	},
+	"63": {
+		"text": "\"You're well within your rights to do that, but it won't change the outcome.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "64"
+		}
+	},
+	"64": {
+		"text": "\"How about we see the outcome of me throwing these fins in your face, huh?\"",
+		"set": {
+			"targetSprite": "angry",
+			"speaker": "target",
+			"agitation": "it+5"
+		},
+		"link": {
+			"Calm things down.": "66",
+			"Fry this guy.": "65"
+		}
+	},
+	"65": {
+		"text": "\"I'd like to see that outcome too actually. Go ahead.\"",
+		"set": {
+			"bullSprite": "upset",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "97"
+		}
+	},
+	"66": {
+		"text": "\"Whoa, whoa. Let's try not to end this in violence-\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "67"
+		}
+	},
+	"67": {
+		"text": "\"Look, I'm sorry. We got off on the wrong foot. Er, fin. I really am trying to help you.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it-5"
+		},
+		"link": {
+			"-->": "74"
+		}
+	},
+	"69": {
+		"text": "\"Dam right you weren't thinking! I give you the time out of my day and this is how you treat me? Why am I still talking to you? Get off my porch. And don't touch my lawn!\"",
+		"set": {
+			"speaker": "target",
+			"agitation": "it+5"
+		},
+		"link": {
+			"Continue apologizing profusely.": "70",
+			"Stand up for yourself.": "71"
+		}
+	},
+	"7": {
+		"text": "\"Good afternoon! My name is Bullerton, from Holstein Collections Inc.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "8"
+		}
+	},
+	"70": {
+		"text": "\"I really am terribly sorry. I meant no offense.\"",
+		"set": {
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "73"
+		}
+	},
+	"71": {
+		"text": "\"Okay- I know we bulls are known for eating grass, but we do have self-restraint, you know.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "72"
+		}
+	},
+	"72": {
+		"text": "\"Well you should have restrained yourself from hassling me! Did you think about that?\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "67"
+		}
+	},
+	"73": {
+		"text": "\"You should have thought about avoiding offense before you came banging on my door! Did you think about that?\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "67"
+		}
+	},
+	"74": {
+		"text": "\"I don't want your help! Have I not made that abundantly clear??\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "75"
+		}
+	},
+	"75": {
+		"text": "\"I understand that, but if you would just allow me to leave some resources here with you-\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "76"
+		}
+	},
+	"76": {
+		"text": "\"I'm not at all interested in your resources, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!\"",
+		"set": {
+			"targetSprite": "angry",
+			"speaker": "target",
+			"agitation": "60"
+		},
+		"link": {
+			"-->": "77"
+		}
+	},
+	"77": {
+		"text": "\"...\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "78"
+		}
+	},
+	"78": {
+		"text": "\"So you're gonna be like that, huh?\"",
+		"set": {
+			"bullSprite": "upset",
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "79"
+		}
+	},
+	"79": {
+		"text": "\"You're gonna stoop that low?\"",
+		"set": {
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "80"
+		}
+	},
+	"8": {
+		"text": "\"We've been informed that you've been behind on your payments to the Hereford County Energy Department for a while, so I'm here to touch base with you about your options.\"",
+		"set": {},
+		"link": {
+			"-->": "9"
+		}
+	},
+	"80": {
+		"text": "\"I- wait-\"",
+		"set": {
+			"targetSprite": "shocked",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "81"
+		}
+	},
+	"81": {
+		"text": "\"I did try to do things the nice way first, but I can play dirty too.\"",
+		"set": {
+			"speaker": "bull",
+			"agitation": "80"
+		},
+		"link": {
+			"-->": "82"
+		}
+	},
+	"82": {
+		"text": "\"Wait wait, I'm sorry- I didn't mean that. Let's just... both take a breath.\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"Chill out.": "83",
+			"RRAAAHHHHHH": "84"
+		}
+	},
+	"83": {
+		"text": "\"...You're right. This isn't productive. I'm sorry.\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull",
+			"agitation": "it-20"
+		},
+		"link": {
+			"-->": "85"
+		}
+	},
+	"84": {
+		"text": "\"DON'T TELL ME HOW TO BREATHE!\"",
+		"set": {
+			"bullSprite": "angry",
+			"speaker": "bull",
+			"agitation": "it+10"
+		},
+		"link": {
+			"-->": "101"
+		}
+	},
+	"85": {
+		"text": "\"...It's alright. I was hostile for no reason.\"",
+		"set": {
+			"targetSprite": "shy",
+			"speaker": "target",
+			"agitation": "it-10"
+		},
+		"link": {
+			"-->": "86"
+		}
+	},
+	"86": {
+		"text": "\"I'm supposed to be working on my anger management, but... It's harder than I thought.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it-10"
+		},
+		"link": {
+			"-->": "87"
+		}
+	},
+	"87": {
+		"text": "\"I get that. Good on you for working on it though.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target",
+			"agitation": "it-10"
+		},
+		"link": {
+			"-->": "88"
+		}
+	},
+	"88": {
+		"text": "\"Thanks. It means a lot.\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull",
+			"agitation": "it-10"
+		},
+		"link": {
+			"-->": "89"
+		}
+	},
+	"89": {
+		"text": "\"I- sorry, can I be completely honest with you?\"",
+		"set": {
+			"targetSprite": "shy",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "90"
+		}
+	},
+	"9": {
+		"text": "\"Oh, great. Just what I needed.\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target",
+			"agitation": "it+20"
+		},
+		"link": {
+			"-->": "10"
+		}
+	},
+	"90": {
+		"text": "\"Sure?\"",
+		"set": {
+			"bullSprite": "neutral",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "91"
+		}
+	},
+	"91": {
+		"text": "\"That was... kinda hot.\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "92"
+		}
+	},
+	"92": {
+		"text": "\"Oh?\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "93"
+		}
+	},
+	"93": {
+		"text": "\"Ever since I moved on land, I've had a hard time connecting with people. But just now... the tension... I haven't felt a rush like that in years.\"",
+		"set": {
+			"targetSprite": "neutral",
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "94"
+		}
+	},
+	"94": {
+		"text": "\"I- nobody's ever said something like that to me before...\"",
+		"set": {
+			"bullSprite": "shocked",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "95"
+		}
+	},
+	"95": {
+		"text": "\"Well, if you want, I have drinks in the fridge. I could say a lot more to you, if you'd like. And you could tell me all about your payment plans too.\"",
+		"set": {
+			"speaker": "target"
+		},
+		"link": {
+			"-->": "96"
+		}
+	},
+	"96": {
+		"text": "\"That sounds nice, actually. I'll take you up on that.\"",
+		"set": {
+			"bullSprite": "cheery",
+			"speaker": "bull"
+		},
+		"link": {
+			"-->": "Ending 3"
+		}
+	},
+	"97": {
+		"text": "\"Let me get my lawyer on the line right now. She'll wanna watch this, I'm sure.\"",
+		"set": {
+			"targetSprite": "upset",
+			"speaker": "target"
+		},
+		"link": {
+			"Egg him on.": "98",
+			"Call his bluff.": "99"
+		}
+	},
+	"98": {
+		"text": "\"Oh, we have an audience now too? You must [i]really[/i] want to get filleted, little fishy.\"",
+		"set": {
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "100"
+		}
+	},
+	"99": {
+		"text": "\"You sure you wanna go through with this, little fishy? You don't seem the type.\"",
+		"set": {
+			"speaker": "bull",
+			"agitation": "it+5"
+		},
+		"link": {
+			"-->": "100"
+		}
+	}
 }

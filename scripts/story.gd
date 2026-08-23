@@ -218,7 +218,7 @@ func add_dummy(input) -> void:
 	input[action.id] = action
 
 
-func apply_setter_list(list: Dictionary) -> void:
+func apply_setter_list(list: Dictionary, tween_time0 = 1.0) -> void:
 	for variable in list:
 		var value: StringName = list[variable]
 		match variable:
@@ -229,7 +229,7 @@ func apply_setter_list(list: Dictionary) -> void:
 			"speaker":
 				speaker = value
 			"background":
-				tween_time = 1.0
+				tween_time = tween_time0
 				background = value
 			"agitation":
 				if value.contains("it"):

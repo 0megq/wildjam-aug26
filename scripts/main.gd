@@ -27,7 +27,7 @@ func _ready() -> void:
 	Story.target_changed.connect(func(value: StringName):
 		$FishSprite.texture = load("res://assets/pictures/fish_%s.png" % value)
 	)
-	begin_action("SPLASH_BEGIN")
+	begin_action("ENDING_1")
 	$ChargingMinigame.set_process(false)
 	
 
@@ -60,14 +60,19 @@ func begin_action(id: StringName) -> void:
 		return
 	match current_action.type:
 		Action.Type.DIALOG:
+			var tween_time := 1.0
+			match current_action.id:
+				"DIALOG_02":
+					MusicManager.fade_in_music()
+				"DIALOG_05":
+					$BellSound.play()
+				"END_DIALOG":
+					tween_time = 2.5
 			# Setters must be applied before we begin dialog, otherwise the picture will not be up-to-date
-			Story.apply_setter_list(current_action.setter_list)
+			Story.apply_setter_list(current_action.setter_list, tween_time)
 			
 			dialogue_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
 			dialogue_box.action_display(current_action)
-			
-			if current_action.id == "DIALOG_05":
-				$BellSound.play()
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())
@@ -94,6 +99,7 @@ func begin_action(id: StringName) -> void:
 					get_tree().create_timer(2).timeout.connect($CarSound.play)
 					get_tree().create_timer(4).timeout.connect(_on_story_start_ready)
 				"ENDING_1":
+					MusicManager.fade_out_music()
 					Story.current_aggro_points = 0
 					$AggroBar.hide()
 					$VictorySound.play()
@@ -105,11 +111,13 @@ func begin_action(id: StringName) -> void:
 					Story.current_aggro_points = 0
 					begin_action.call_deferred("ENDING_2_COMPLETE")
 				"ENDING_2_COMPLETE":
+					MusicManager.fade_out_music()
 					$VictorySound.play()
 					$DialogueBox.hide()
 					Story.background = "ending2"
 					do_ending_transition()
 				"ENDING_3":
+					MusicManager.fade_out_music()
 					$AggroBar.hide()
 					Story.current_aggro_points = 0
 					$VictorySound.play()
