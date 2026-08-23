@@ -24,6 +24,9 @@ func _ready() -> void:
 	Story.background_changed.connect(func(value:StringName):
 		background.set_background(value, Story.tween_time)
 	)
+	Story.target_changed.connect(func(value: StringName):
+		$FishSprite.texture = load("res://assets/pictures/fish_%s.png" % value)
+	)
 	begin_action("SPLASH_BEGIN")
 	$ChargingMinigame.set_process(false)
 	

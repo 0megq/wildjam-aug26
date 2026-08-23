@@ -5,7 +5,8 @@ var peaceful_ending_achieved := false
 var charged_ending_achieved := false
 
 signal aggro_points_changed(value: int)
-signal background_changed(value: int)
+signal background_changed(value: String)
+signal target_changed(value: String)
 
 var current_option_id: int = 1
 
@@ -17,7 +18,10 @@ var current_aggro_points: int = 0 :
 var action_data: Dictionary[StringName, Action]
 
 var bull_sprite: StringName = "neutral"
-var target_sprite: StringName = "neutral"
+var target_sprite: StringName = "neutral" :
+	set(value):
+		target_sprite = value
+		target_changed.emit(value)
 var speaker: StringName = "narrator"
 var background: StringName = "background" :
 	set(value):

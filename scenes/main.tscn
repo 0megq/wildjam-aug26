@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b0jqt7a3vhgg2" path="res://scenes/charging_minigame.tscn" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://c103omp7wuu44" path="res://scripts/background.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://br40okq01lh6x" path="res://scenes/case_file.tscn" id="11_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://dbesk0s7rb25k" path="res://assets/fish/fish1.png" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dk5gtr42bere0" path="res://scripts/fish_sprite.gd" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://wsy6h1sg6vb2" path="res://assets/sounds/car.WAV" id="15_jkv2x"]
 [ext_resource type="AudioStream" uid="uid://dtvgxa3j857be" path="res://assets/sounds/victory.wav" id="16_jbj1t"]
@@ -37,6 +36,9 @@ _data = {
 &"show_black": SubResource("Animation_a8y0u"),
 &"show_black_instant": SubResource("Animation_jkv2x")
 }
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkv2x"]
+load_path = "res://.godot/imported/fish1.png-c621515293f682d154192ccf429f2443.ctex"
 
 [node name="Control" type="Control" unique_id=2054030712]
 layout_mode = 3
@@ -136,7 +138,7 @@ libraries/ = SubResource("AnimationLibrary_jkv2x")
 visible = false
 position = Vector2(727, 702)
 scale = Vector2(0.4680197, 0.4680197)
-texture = ExtResource("12_eb6dy")
+texture = SubResource("CompressedTexture2D_jkv2x")
 script = ExtResource("14_a8y0u")
 
 [node name="CarSound" type="AudioStreamPlayer" parent="." unique_id=17128629]

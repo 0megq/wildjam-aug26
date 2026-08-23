@@ -67,7 +67,8 @@ func _on_character_timer_timeout() -> void:
 		return
 	
 	label.visible_characters += 1
-	character_sound.play()
+	if randf() > 0.7:
+		character_sound.play()
 	character_timer.start(0.01)
 
 #func get_text_real_start() -> int:
