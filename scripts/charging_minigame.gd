@@ -5,11 +5,12 @@ var aimed_at_target := false
 var acc = Vector2.ZERO
 var vel = Vector2.ZERO
 
-var acceleration := 0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Set if mouse is hidden or not
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	#Initialize reticle position
 	$Reticle.position = get_global_mouse_position()
 
 
@@ -33,11 +34,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	#Acceleration of the reticle depends on how far current pos of reticle is away from mouse cursor
 	var pos_diff: Vector2 = ($Reticle.position - get_global_mouse_position())
-	
 	acc = -pos_diff * 0.3
 	
+	#Velocity calculated from acceleration
 	vel += acc * delta
 	
+	#Update reticle position
 	$Reticle.position += vel * delta
 	
 

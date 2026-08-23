@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://oqa1b0my0hvd" path="res://scripts/case_file.gd" id="1_lr8uf"]
 [ext_resource type="Texture2D" uid="uid://cyl3cocdkiqxt" path="res://folder-transparent-background_518192-2046-1478209580.jpg" id="2_4r7pf"]
-[ext_resource type="Script" uid="uid://kwof2vomctg" path="res://scripts/texture_button.gd" id="3_4r7pf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0kmk"]
 font_size = 96
@@ -43,7 +42,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_4r7pf")
 texture_hover = ExtResource("2_4r7pf")
-script = ExtResource("3_4r7pf")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton" unique_id=758315144]
 layout_mode = 0
