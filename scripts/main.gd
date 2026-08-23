@@ -80,7 +80,24 @@ func begin_action(id: StringName) -> void:
 					Story.tween_time = 2.0
 					Story.background = "office"
 					background.finished.connect(_splash_to_office_done, CONNECT_ONE_SHOT)
+				"CASE_FILES":
+					$DialogueBox.hide()
+					$CaseFile.begin()
+					$CaseFile.case_file_selected.connect(_on_case_file_selected)
+				"START_STORY":
+					Story.tween_time = 1.0
+					Story.background = "black"
+					background.finished.connect(_on_story_start_ready, CONNECT_ONE_SHOT)
 
+func _on_story_start_ready() -> void:
+	# PLAY DRIVING SOUND
+	await get_tree().create_timer(0.5).timeout
+	begin_action("DIALOG_01")
+
+
+func _on_case_file_selected() -> void:
+	$CaseFile.end()
+	begin_action("START_STORY")
 
 func _splash_to_office_done() -> void:
 	begin_action("OFFICE_01")

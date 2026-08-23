@@ -80,7 +80,8 @@ func load_story() -> void:
 		
 	add_other_actions(res)
 	
-	res["DIALOG_01"].setter_list["background"] = "street"
+	#res["DIALOG_01"].setter_list["background"] = "black"
+	res["DIALOG_02"].setter_list["background"] = "street"
 	
 	action_data = res
 	
@@ -88,23 +89,23 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	var action := Action.new()
 	action.id = "ENDING_1"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASES")
+	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
 	action.id = "ENDING_2"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASES")
+	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
 	action.id = "ENDING_3"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASES")
+	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
-	action.id = "CASES"
+	action.id = "CASE_FILES"
 	action.type = Action.Type.OTHER
 	action.set_next_action("START_STORY")
 	input[action.id] = action
@@ -124,7 +125,7 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action = Action.new()
 	action.id = "OFFICE_END"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASES")
+	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
@@ -136,7 +137,7 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.id = "SPLASH_DIALOG"
 	action.type = Action.Type.DIALOG
 	action.wait_for_confirmation = true
-	action.text = "It is another day at work in the Holstein Collections Inc. office. You are the proud leader of a truly noble department, venturing forth and claiming what is rightfully owed from those who would see it forever withheld."
+	action.text = "[i]It is another day at work in the Holstein Collections Inc. office. You are the proud leader of a truly noble department, venturing forth and claiming what is rightfully owed from those who would see it forever withheld.[/i]"
 	action.set_next_action("OFFICE_START")
 	input[action.id] = action
 	
@@ -144,14 +145,22 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.id = "OFFICE_01"
 	action.type = Action.Type.DIALOG
 	action.wait_for_confirmation = true
-	action.text = "dialog 1"
+	action.text = "[i]That is, you collect defaulted debts on behalf of the Hereford County Energy Department. And if those you seek should refuse, you ensure they are punished with gratuitous physical violence.[/i]"
 	action.set_next_action("OFFICE_02")
 	input[action.id] = action
 	
 	action = Action.new()
 	action.id = "OFFICE_02"
 	action.type = Action.Type.DIALOG
-	action.text = "dialog 2"
+	action.wait_for_confirmation = true
+	action.text = "[i]In other words, you are a bull in charge of charging at people charged with not paying their charges for charging.[/i]"
+	action.set_next_action("OFFICE_03")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_03"
+	action.type = Action.Type.DIALOG
+	action.text = "[i]Today’s case files are on your desk. Take a look?[/i]"
 	action.set_next_action("OFFICE_OPTIONS")
 	input[action.id] = action
 	
@@ -162,13 +171,14 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.get_next_action_id = func(number: int):
 		match number:
 			0: return "CASE_FILES"
-			1: return "OFFICE_03"
+			1: return "OFFICE_04"
 	input[action.id] = action
 	
 	action = Action.new()
-	action.id = "OFFICE_03"
+	action.id = "OFFICE_04"
 	action.type = Action.Type.DIALOG
-	action.text = "you have no choice"
+	action.wait_for_confirmation = true
+	action.text = "[i]There is no escape for those in debt, nor for those under an employment contract. Do your job.[/i]"
 	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 
@@ -188,8 +198,9 @@ func apply_setter_list(list: Dictionary) -> void:
 				background = value
 			"agitation":
 				if value.contains("it"):
-					var numberStr := value.substr(3).remove_chars(" ")
-					current_aggro_points += int(numberStr)
+					var numberStr := value.substr(2).remove_chars(" ")
+					var number := int(numberStr)
+					current_aggro_points += number
 				else:
 					current_aggro_points = int(value)
 			_:

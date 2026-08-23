@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://br40okq01lh6x"]
 
+[ext_resource type="Theme" uid="uid://dykxoqt3r5juy" path="res://main_theme.tres" id="1_1s1ax"]
 [ext_resource type="Script" uid="uid://oqa1b0my0hvd" path="res://scripts/case_file.gd" id="1_lr8uf"]
 [ext_resource type="Texture2D" uid="uid://5ljgsg41v55n" path="res://assets/case files/file1.png" id="2_5bu10"]
-[ext_resource type="Texture2D" uid="uid://bv5h8ay1xs8kx" path="res://assets/backgrounds/office_no_desk.jpg" id="2_b3mlo"]
-[ext_resource type="Texture2D" uid="uid://c8grrv3iwec0c" path="res://assets/backgrounds/office_desk.png" id="3_ffc5o"]
 [ext_resource type="Texture2D" uid="uid://bvq8fra4xljsd" path="res://assets/case files/file1_locked.png" id="3_g3do8"]
 [ext_resource type="Texture2D" uid="uid://hq1kh0cnfisw" path="res://assets/case files/file2.png" id="4_b3mlo"]
 [ext_resource type="Texture2D" uid="uid://cwy68ipv84ijr" path="res://assets/backgrounds/potted_plant.png" id="4_ffc5o"]
@@ -16,10 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bdbtlvmjfuhhd" path="res://assets/case files/file5_locked.png" id="11_jie4n"]
 [ext_resource type="Texture2D" uid="uid://dm1s3k0gty5wl" path="res://assets/case files/file6.png" id="12_gmlmi"]
 [ext_resource type="Texture2D" uid="uid://bex011saqmrbv" path="res://assets/case files/file6_locked.png" id="13_86kjp"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v776q"]
-blend_mode = 3
-light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1s1ax"]
 blend_mode = 3
@@ -34,15 +29,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_1s1ax")
 script = ExtResource("1_lr8uf")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1093051756]
-material = SubResource("CanvasItemMaterial_v776q")
-layout_mode = 0
-offset_right = 4355.555
-offset_bottom = 3266.6663
-scale = Vector2(0.33, 0.33)
-texture = ExtResource("2_b3mlo")
+[node name="Background" type="ColorRect" parent="." unique_id=776484803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
 
 [node name="Desk" type="TextureRect" parent="Background" unique_id=1202502579]
 material = SubResource("CanvasItemMaterial_1s1ax")
@@ -50,16 +47,17 @@ layout_mode = 0
 offset_top = 128.0
 offset_right = 4200.0
 offset_bottom = 3278.0
-texture = ExtResource("3_ffc5o")
 
 [node name="PottedPlant" type="TextureRect" parent="Background" unique_id=2023202493]
 layout_mode = 0
-offset_left = 1100.0
-offset_top = 700.0
-offset_right = 1925.0
-offset_bottom = 1902.0
+offset_left = 351.0
+offset_top = 177.0
+offset_right = 1176.0
+offset_bottom = 643.28577
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_ffc5o")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139621905]
 layout_mode = 0
@@ -85,6 +83,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_5bu10")
 texture_disabled = ExtResource("3_g3do8")
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/CaseFile1" unique_id=1188838746]
+layout_mode = 0
+offset_left = 195.5
+offset_top = 591.0
+offset_right = 447.99997
+offset_bottom = 703.49994
+theme_override_font_sizes/font_size = 64
+text = "Begin"
 
 [node name="DCaseFile2" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1455925172]
 layout_mode = 2
@@ -122,4 +129,4 @@ disabled = true
 texture_normal = ExtResource("12_gmlmi")
 texture_disabled = ExtResource("13_86kjp")
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/CaseFile1" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CaseFile1/Button" to="." method="_on_button_pressed"]
