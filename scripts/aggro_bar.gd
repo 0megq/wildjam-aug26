@@ -6,6 +6,8 @@ extends TextureProgressBar
 
 @export var charge_threshold: float = 0.8
 
+signal charge_threshold_reached
+
 var is_hovered := false
 
 func _ready() -> void:
@@ -33,5 +35,6 @@ func _update_frame() -> void:
 		texture_over = frame_hover
 	elif (value / max_value) >= charge_threshold:
 		texture_over = frame_charged
+		charge_threshold_reached.emit()
 	else:
 		texture_over = frame_normal

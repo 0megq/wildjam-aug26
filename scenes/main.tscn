@@ -4,9 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://scenes/dialogue_box.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnbog2yaelaar" path="res://scenes/pause_menu.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://6d2d8djmghli" path="res://assets/aggro bar/uncharged_aggro_bar.png" id="5_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://vwqq1bdoaoup" path="res://scripts/splash.gd" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dgh5nc5kvd63" path="res://assets/aggro bar/red_progress_bar.png" id="6_trceg"]
+[ext_resource type="Script" uid="uid://deq4joeuf720p" path="res://scripts/aggro_bar.gd" id="7_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b0jqt7a3vhgg2" path="res://scenes/charging_minigame.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://5a2c31172jfu" path="res://assets/aggro bar/charged_aggro_bar.png" id="8_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://csvy0mwi2uoam" path="res://assets/aggro bar/mouseover_aggro_bar.png" id="9_jbj1t"]
 
 [sub_resource type="SystemFont" id="SystemFont_85g3d"]
 font_names = PackedStringArray("Consolas")
@@ -47,6 +52,22 @@ offset_top = 19.0
 offset_right = 73.0
 offset_bottom = 42.0
 label_settings = SubResource("LabelSettings_2ljgr")
+
+[node name="AggroBar" type="TextureProgressBar" parent="." unique_id=1306855287]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 19.0
+offset_right = 1673.0
+offset_bottom = 2379.0
+scale = Vector2(0.15, 0.15)
+fill_mode = 3
+texture_over = ExtResource("5_eb6dy")
+texture_progress = ExtResource("6_trceg")
+texture_progress_offset = Vector2(0, 480)
+script = ExtResource("7_a8y0u")
+frame_normal = ExtResource("5_eb6dy")
+frame_charged = ExtResource("8_jkv2x")
+frame_hover = ExtResource("9_jbj1t")
 
 [node name="ChargingMinigame" parent="." unique_id=749736898 instance=ExtResource("7_o6xl0")]
 visible = false
@@ -92,3 +113,6 @@ grow_vertical = 2
 color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
+[connection signal="mouse_entered" from="AggroBar" to="AggroBar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AggroBar" to="AggroBar" method="_on_mouse_exited"]
+[connection signal="value_changed" from="AggroBar" to="AggroBar" method="_on_value_changed"]

@@ -14,11 +14,13 @@ var paused := false :
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var dialogue_box: DialogBox = $DialogueBox
 @onready var option_popup: ColorRect = $OptionPopup
-@onready var aggro_points: Label = $AggroPoints
+#@onready var aggro_points: Label = $AggroPoints
+@onready var aggro_points: TextureProgressBar = $AggroBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Story.aggro_points_changed.connect(func(value: int): aggro_points.text = "AP: %2d" % value)
+	#Story.aggro_points_changed.connect(func(value: int): aggro_points.text = "AP: %2d" % value) PREVIOUS SIMPLE AP LABEL
+	Story.aggro_points_changed.connect(func(value: int): aggro_points.value += value) #PRELIMINARY, PLEASE TEST
 	begin_action("SPLASH_BEGIN")
 	$ChargingMinigame.set_process(false)
 
