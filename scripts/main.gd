@@ -14,15 +14,22 @@ var paused := false :
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var dialogue_box: DialogBox = $DialogueBox
 @onready var option_popup: ColorRect = $OptionPopup
-#@onready var aggro_points: Label = $AggroPoints
 @onready var aggro_points: TextureProgressBar = $AggroBar
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var background: TextureRect = $Background
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Story.aggro_points_changed.connect(func(value: int): aggro_points.text = "AP: %2d" % value) PREVIOUS SIMPLE AP LABEL
-	Story.aggro_points_changed.connect(func(value: int): aggro_points.value += value) #PRELIMINARY, PLEASE TEST
+	Story.aggro_points_changed.connect(func(value: int): 
+		aggro_points.value = value
+		aggro_points.show()
+	)
+	Story.background_changed.connect(func(value:StringName):
+		background.set_background(value, Story.tween_time)
+	)
 	begin_action("SPLASH_BEGIN")
 	$ChargingMinigame.set_process(false)
+	
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)
@@ -32,9 +39,6 @@ func _on_dialog_finished() -> void:
 
 func _on_option_selected(number: int) -> void:
 	option_popup.hide()
-	
-	# apply modifiers
-	Story.current_aggro_points += current_action.options[number].aggro_points
 	
 	# choose next
 	var next_action_id: StringName = current_action.get_next_action_id.call(number)
@@ -69,6 +73,18 @@ func begin_action(id: StringName) -> void:
 				"SPLASH_BEGIN":
 					$Splash.begin()
 					$Splash.finished.connect(begin_action.bind("SPLASH_DIALOG"))
+					animation_player.play("show_black_instant")
+				"OFFICE_START":
+					$Splash.end()
+					$DialogueBox.hide()
+					Story.tween_time = 2.0
+					Story.background = "office"
+					background.finished.connect(_splash_to_office_done, CONNECT_ONE_SHOT)
+
+
+func _splash_to_office_done() -> void:
+	begin_action("OFFICE_01")
+
 	
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

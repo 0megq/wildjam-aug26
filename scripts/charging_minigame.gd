@@ -10,6 +10,7 @@ var vel = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
 	#Set if mouse is hidden or not
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
@@ -18,7 +19,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#set_process(false) when scene is not active
 	#Detect if player is intending to charge
 	if Input.is_action_pressed("charging"):

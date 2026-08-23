@@ -9,11 +9,9 @@ enum Type {
 
 class Option:
 	var text: String
-	var aggro_points: int
 	
-	func _init(text0: String, aggro_points0: int  = 0) -> void:
+	func _init(text0: String) -> void:
 		text = text0
-		aggro_points = aggro_points0
 
 var id: StringName
 var type: Type

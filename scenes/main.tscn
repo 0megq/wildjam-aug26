@@ -4,24 +4,35 @@
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://scenes/dialogue_box.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnbog2yaelaar" path="res://scenes/pause_menu.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://6d2d8djmghli" path="res://assets/aggro bar/uncharged_aggro_bar.png" id="5_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://by6f3p2pkpkpl" path="res://scenes/aggro_bar.tscn" id="5_tipki"]
 [ext_resource type="Script" uid="uid://vwqq1bdoaoup" path="res://scripts/splash.gd" id="6_tefeu"]
-[ext_resource type="Texture2D" uid="uid://dgh5nc5kvd63" path="res://assets/aggro bar/red_progress_bar.png" id="6_trceg"]
-[ext_resource type="Script" uid="uid://deq4joeuf720p" path="res://scripts/aggro_bar.gd" id="7_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b0jqt7a3vhgg2" path="res://scenes/charging_minigame.tscn" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://5a2c31172jfu" path="res://assets/aggro bar/charged_aggro_bar.png" id="8_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://csvy0mwi2uoam" path="res://assets/aggro bar/mouseover_aggro_bar.png" id="9_jbj1t"]
-
-[sub_resource type="SystemFont" id="SystemFont_85g3d"]
-font_names = PackedStringArray("Consolas")
+[ext_resource type="Script" uid="uid://c103omp7wuu44" path="res://scripts/background.gd" id="10_choun"]
 
 [sub_resource type="Theme" id="Theme_tefeu"]
-default_font = SubResource("SystemFont_85g3d")
 default_font_size = 32
 
-[sub_resource type="LabelSettings" id="LabelSettings_2ljgr"]
-font_color = Color(1, 0, 1, 1)
+[sub_resource type="Animation" id="Animation_eb6dy"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_trceg"]
+resource_name = "hide_black"
+
+[sub_resource type="Animation" id="Animation_a8y0u"]
+resource_name = "show_black"
+
+[sub_resource type="Animation" id="Animation_jkv2x"]
+resource_name = "show_black_instant"
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkv2x"]
+_data = {
+&"RESET": SubResource("Animation_eb6dy"),
+&"hide_black": SubResource("Animation_trceg"),
+&"show_black": SubResource("Animation_a8y0u"),
+&"show_black_instant": SubResource("Animation_jkv2x")
+}
 
 [node name="Control" type="Control" unique_id=2054030712]
 layout_mode = 3
@@ -44,35 +55,20 @@ layout_mode = 1
 visible = false
 z_index = 2
 layout_mode = 1
+color = Color(0, 0, 0, 0.40392157)
 
-[node name="AggroPoints" type="Label" parent="." unique_id=1565103392]
+[node name="AggroBar" parent="." unique_id=1938771419 instance=ExtResource("5_tipki")]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 19.0
-offset_right = 73.0
-offset_bottom = 42.0
-label_settings = SubResource("LabelSettings_2ljgr")
-
-[node name="AggroBar" type="TextureProgressBar" parent="." unique_id=1306855287]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 19.0
-offset_right = 1673.0
-offset_bottom = 2379.0
-scale = Vector2(0.15, 0.15)
-fill_mode = 3
-texture_over = ExtResource("5_eb6dy")
-texture_progress = ExtResource("6_trceg")
-texture_progress_offset = Vector2(0, 480)
-script = ExtResource("7_a8y0u")
-frame_normal = ExtResource("5_eb6dy")
-frame_charged = ExtResource("8_jkv2x")
-frame_hover = ExtResource("9_jbj1t")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1640.0
+offset_bottom = 2360.0
 
 [node name="ChargingMinigame" parent="." unique_id=749736898 instance=ExtResource("7_o6xl0")]
 visible = false
 
 [node name="Splash" type="TextureRect" parent="." unique_id=1876546685]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,7 +98,10 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "Press Enter"
 
-[node name="Black" type="ColorRect" parent="." unique_id=779577062]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=690576484]
+libraries/ = SubResource("AnimationLibrary_jkv2x")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1960389005]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -110,9 +109,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12591085, 0.12591085, 0.12591082, 1)
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("10_choun")
+
+[node name="Alternate" type="TextureRect" parent="Background" unique_id=643684990]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
-[connection signal="mouse_entered" from="AggroBar" to="AggroBar" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="AggroBar" to="AggroBar" method="_on_mouse_exited"]
-[connection signal="value_changed" from="AggroBar" to="AggroBar" method="_on_value_changed"]

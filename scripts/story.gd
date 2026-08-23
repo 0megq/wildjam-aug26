@@ -5,6 +5,7 @@ var peaceful_ending_achieved := false
 var charged_ending_achieved := false
 
 signal aggro_points_changed(value: int)
+signal background_changed(value: int)
 
 var current_option_id: int = 1
 
@@ -18,7 +19,11 @@ var action_data: Dictionary[StringName, Action]
 var bull_sprite: StringName = "neutral"
 var target_sprite: StringName = "neutral"
 var speaker: StringName = "narrator"
-var background: StringName = "background"
+var background: StringName = "background" :
+	set(value):
+		background = value
+		background_changed.emit(value)
+var tween_time: float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,7 +58,7 @@ func load_story() -> void:
 				action.set_next_action(next)
 				action.wait_for_confirmation = true
 				break
-			options[Action.Option.new(link, 0)] = next
+			options[Action.Option.new(link)] = next
 
 		# setup the option action and its callback
 		if options.size() > 0:
@@ -74,6 +79,8 @@ func load_story() -> void:
 		res[action.id] = action
 		
 	add_other_actions(res)
+	
+	res["DIALOG_01"].setter_list["background"] = "street"
 	
 	action_data = res
 	
@@ -130,7 +137,39 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.type = Action.Type.DIALOG
 	action.wait_for_confirmation = true
 	action.text = "It is another day at work in the Holstein Collections Inc. office. You are the proud leader of a truly noble department, venturing forth and claiming what is rightfully owed from those who would see it forever withheld."
-	action.set_next_action("OFFICE_DIALOG_01")
+	action.set_next_action("OFFICE_START")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_01"
+	action.type = Action.Type.DIALOG
+	action.wait_for_confirmation = true
+	action.text = "dialog 1"
+	action.set_next_action("OFFICE_02")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_02"
+	action.type = Action.Type.DIALOG
+	action.text = "dialog 2"
+	action.set_next_action("OFFICE_OPTIONS")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_OPTIONS"
+	action.type = Action.Type.OPTION_SELECT
+	action.options = [Action.Option.new("Yes"), Action.Option.new("No")]
+	action.get_next_action_id = func(number: int):
+		match number:
+			0: return "CASE_FILES"
+			1: return "OFFICE_03"
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_03"
+	action.type = Action.Type.DIALOG
+	action.text = "you have no choice"
+	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 
 
@@ -145,6 +184,7 @@ func apply_setter_list(list: Dictionary) -> void:
 			"speaker":
 				speaker = value
 			"background":
+				tween_time = 1.0
 				background = value
 			"agitation":
 				if value.contains("it"):

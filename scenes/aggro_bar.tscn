@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://by6f3p2pkpkpl"]
+
+[ext_resource type="Texture2D" uid="uid://6d2d8djmghli" path="res://assets/aggro bar/uncharged_aggro_bar.png" id="1_h3aur"]
+[ext_resource type="Texture2D" uid="uid://dgh5nc5kvd63" path="res://assets/aggro bar/red_progress_bar.png" id="2_pdqrq"]
+[ext_resource type="Script" uid="uid://deq4joeuf720p" path="res://scripts/aggro_bar.gd" id="3_xoyfd"]
+[ext_resource type="Texture2D" uid="uid://5a2c31172jfu" path="res://assets/aggro bar/charged_aggro_bar.png" id="4_3g8cb"]
+[ext_resource type="Texture2D" uid="uid://csvy0mwi2uoam" path="res://assets/aggro bar/mouseover_aggro_bar.png" id="5_xkruj"]
+
+[sub_resource type="Animation" id="Animation_h3aur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33.333332, 186.66666)]
+}
+
+[sub_resource type="Animation" id="Animation_pdqrq"]
+resource_name = "shake_arrow"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(193.33333, 113.33333), Vector2(280, -119.999985)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xoyfd"]
+_data = {
+&"RESET": SubResource("Animation_h3aur"),
+&"shake_arrow": SubResource("Animation_pdqrq")
+}
+
+[node name="AggroBar" type="TextureProgressBar" unique_id=1938771419]
+offset_left = 33.0
+offset_top = 19.0
+offset_right = 1673.0
+offset_bottom = 2379.0
+scale = Vector2(0.15, 0.15)
+fill_mode = 3
+texture_over = ExtResource("1_h3aur")
+texture_progress = ExtResource("2_pdqrq")
+texture_progress_offset = Vector2(0, 480)
+script = ExtResource("3_xoyfd")
+frame_normal = ExtResource("1_h3aur")
+frame_charged = ExtResource("4_3g8cb")
+frame_hover = ExtResource("5_xkruj")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=287989920]
+position = Vector2(-33.333332, 186.66666)
+rotation = 0.10448728
+color = Color(0.97, 0.19400005, 0.038800023, 1)
+antialiased = true
+polygon = PackedVector2Array(1006.6666, 180, 1086.6666, 366.66666, 1306.6666, 253.33334, 1193.3333, 186.66666, 1273.3333, -140, 1213.3333, -133.33333, 1120, 153.33334, 980, 106.666664)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=370747241]
+libraries/ = SubResource("AnimationLibrary_xoyfd")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

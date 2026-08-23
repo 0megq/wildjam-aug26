@@ -50,11 +50,9 @@ func wait_or_emit_finished() -> void:
 		return
 	
 	waiting_for_confirmation = true
-	wait_icon.show()
 
 
-func _gui_input(event: InputEvent) -> void:
-	
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_dialogue"):
 		label.visible_characters = label.text.length()
 		if waiting_for_confirmation:
