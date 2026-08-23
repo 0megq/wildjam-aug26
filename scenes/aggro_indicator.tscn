@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cbjddmu5yp66o"]
+
+[ext_resource type="Script" uid="uid://deq4joeuf720p" path="res://scripts/aggro_bar.gd" id="1_wobfq"]
+[ext_resource type="Texture2D" uid="uid://6d2d8djmghli" path="res://assets/aggro bar/uncharged_aggro_bar.png" id="2_q15eg"]
+[ext_resource type="Texture2D" uid="uid://5a2c31172jfu" path="res://assets/aggro bar/charged_aggro_bar.png" id="3_73228"]
+[ext_resource type="Texture2D" uid="uid://csvy0mwi2uoam" path="res://assets/aggro bar/mouseover_aggro_bar.png" id="4_kfqyj"]
+[ext_resource type="Texture2D" uid="uid://dgh5nc5kvd63" path="res://assets/aggro bar/red_progress_bar.png" id="5_q15eg"]
+
+[node name="AggroIndicator" type="Control" unique_id=1364429348]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1222.0
+offset_bottom = -705.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AggroBar" type="TextureProgressBar" parent="." unique_id=236301946]
+layout_mode = 0
+offset_right = 1640.0
+offset_bottom = 2360.0
+scale = Vector2(0.15, 0.15)
+fill_mode = 3
+texture_over = ExtResource("2_q15eg")
+texture_progress = ExtResource("5_q15eg")
+texture_progress_offset = Vector2(0, 480)
+script = ExtResource("1_wobfq")
+frame_normal = ExtResource("2_q15eg")
+frame_charged = ExtResource("3_73228")
+frame_hover = ExtResource("4_kfqyj")
+
+[connection signal="mouse_entered" from="AggroBar" to="AggroBar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="AggroBar" to="AggroBar" method="_on_mouse_exited"]
+[connection signal="value_changed" from="AggroBar" to="AggroBar" method="_on_value_changed"]
