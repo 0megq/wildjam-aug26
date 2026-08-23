@@ -11,12 +11,13 @@ var dialog_done := false
 var waiting_for_confirmation := false :
 	set(value):
 		waiting_for_confirmation = value
-		$MarginContainer/WaitIcon.visible = value
+		wait_icon.visible = value
 
-@onready var character_sound: AudioStreamPlayer = $CharacterSound
-@onready var character_timer: Timer = $CharacterTimer
+@onready var character_sound: AudioStreamPlayer = find_child("CharacterSound")
+@onready var character_timer: Timer = find_child("CharacterTimer")
 @onready var label: RichTextLabel = find_child("Label")
 @onready var icon: TextureRect = find_child("Icon")
+@onready var wait_icon: Control = find_child("WaitIcon")
 
 func _ready() -> void:
 	hide()
@@ -52,9 +53,12 @@ func wait_or_emit_finished() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") and waiting_for_confirmation:
-		dialog_finished.emit()
-		waiting_for_confirmation = false
+	
+	if event.is_action_pressed("ui_accept"):
+		label.visible_characters = label.text.length()
+		if waiting_for_confirmation:
+			dialog_finished.emit()
+			waiting_for_confirmation = false
 
 
 func _on_character_timer_timeout() -> void:
