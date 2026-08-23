@@ -43,12 +43,14 @@ func load_story() -> void:
 		var options: Dictionary[Action.Option, StringName]		
 		for link in link_data:
 			var next: StringName = "DIALOG_%02d" % int(link_data[link])
+			if link_data[link].contains("Ending"):
+				next = "ENDING_%d" % int(link_data[link])
 			if (link == "-->"):
 				action.set_next_action(next)
 				action.wait_for_confirmation = true
 				break
 			options[Action.Option.new(link, 0)] = next
-		
+
 		# setup the option action and its callback
 		if options.size() > 0:
 			var option_action := Action.new()
