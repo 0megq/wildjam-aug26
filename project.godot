@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Story="*uid://cop5niclrsry0"
+MusicManager="*uid://dnpp04wcwhig1"
 
 [display]
 

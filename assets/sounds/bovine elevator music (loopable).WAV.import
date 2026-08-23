@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5xn48ta4hwes"
+path="res://.godot/imported/bovine elevator music (loopable).WAV-d5b12d2b4274985e83a9f094772aa78c.sample"
+
+[deps]
+
+source_file="res://assets/sounds/bovine elevator music (loopable).WAV"
+dest_files=["res://.godot/imported/bovine elevator music (loopable).WAV-d5b12d2b4274985e83a9f094772aa78c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

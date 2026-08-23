@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dnpp04wcwhig1"]
+
+[ext_resource type="AudioStream" uid="uid://5xn48ta4hwes" path="res://assets/sounds/bovine elevator music (loopable).WAV" id="1_hetdf"]
+[ext_resource type="Script" uid="uid://c7cx2banu8m56" path="res://scripts/music_manager.gd" id="2_jd6i5"]
+
+[node name="MusicManager" type="AudioStreamPlayer" unique_id=747847094]
+stream = ExtResource("1_hetdf")
+bus = &"Music"
+script = ExtResource("2_jd6i5")
