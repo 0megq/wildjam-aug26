@@ -177,7 +177,7 @@
 	"22": {
 		"text": "\"You also have the option of consulting a credit counselor throughout this process to help guide you through budgeting. I can leave you with referrals to a few in town. However, Holstein Collections Inc. prides itself on its state-of-the-art data analytics and predictive modeling. We can help structure your optimal payment plan and get you debt free as soon as possible. I'll help get you set up with our client portal to ensure that you receive all the necessary communications throughout this process, and that you always have someone to talk to if you have any questions. I have a budgeting worksheet on hand for you to take a look at. You can also find it in the portal, along with additional bookkeeping documents that will require your signature. Things like acknowledgement of communication with us, acknowledgement of the amount owed, et cetera.\"",
 		"set": {
-			"fishSprite": "upset",
+			"targetSprite": "upset",
 			"agitation": "it+10"
 		},
 		"link": {

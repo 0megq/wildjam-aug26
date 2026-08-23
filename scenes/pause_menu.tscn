@@ -32,8 +32,8 @@ theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2105270891]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 10
-alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=275506888]
 layout_mode = 2
@@ -51,34 +51,31 @@ theme_override_styles/separator = SubResource("StyleBoxLine_rkyq1")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
 text = "Resume"
+
+[node name="VBoxContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer" unique_id=1096096631]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1763594518]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+
+[node name="SoundVolume" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=587739080]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2031906019]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
 text = "Quit
 "
-
-[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer" unique_id=1385177708]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1347932938]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 1000
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=97638722]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1763594518]
-layout_mode = 2
-text = "Volume"
-
-[node name="SoundVolume" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=587739080]
-layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

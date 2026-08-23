@@ -53,9 +53,9 @@ func wait_or_emit_finished() -> void:
 	wait_icon.show()
 
 
-func _input(event: InputEvent) -> void:
+func _gui_input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("next_dialogue"):
 		label.visible_characters = label.text.length()
 		if waiting_for_confirmation:
 			dialog_finished.emit()

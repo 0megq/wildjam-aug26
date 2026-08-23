@@ -28,8 +28,8 @@ var wait_for_confirmation: bool = false
 ## only makes sense when type is OptionSelect
 var options: Array[Option]
 
-func set_next_action(id: StringName) -> void:
-	get_next_action_id = func(): return id
+func set_next_action(id0: StringName) -> void:
+	get_next_action_id = func(): return id0
 	
 func get_option_names() -> Array[String]:
 	var res: Array[String]

@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://chmok0k3o5o3q"]
 
-[ext_resource type="Texture2D" uid="uid://cwiplt5ysva0g" path="res://background.png" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://t7ldmhv24ab2" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://scenes/dialogue_box.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnbog2yaelaar" path="res://scenes/pause_menu.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://vwqq1bdoaoup" path="res://scripts/splash.gd" id="6_tefeu"]
+
+[sub_resource type="SystemFont" id="SystemFont_85g3d"]
+font_names = PackedStringArray("Consolas")
+
+[sub_resource type="Theme" id="Theme_tefeu"]
+default_font = SubResource("SystemFont_85g3d")
+default_font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ljgr"]
 font_color = Color(1, 0, 1, 1)
@@ -16,29 +24,67 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_tefeu")
 script = ExtResource("1_jyhfs")
 
 [node name="PauseMenu" parent="." unique_id=1844924915 instance=ExtResource("2_tefeu")]
 visible = false
 
-[node name="Background" type="Sprite2D" parent="." unique_id=768742073]
-position = Vector2(721, 536.75)
-scale = Vector2(2.1235292, 2.6320295)
-texture = ExtResource("1_0wfyh")
-
 [node name="DialogueBox" parent="." unique_id=1082772398 instance=ExtResource("2_sugp2")]
+z_index = 1
 layout_mode = 1
 
 [node name="OptionPopup" parent="." unique_id=196373830 instance=ExtResource("4_tbgi4")]
 visible = false
+z_index = 2
 layout_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=1565103392]
+[node name="AggroPoints" type="Label" parent="." unique_id=1565103392]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 19.0
 offset_right = 73.0
 offset_bottom = 42.0
 label_settings = SubResource("LabelSettings_2ljgr")
+
+[node name="Splash" type="TextureRect" parent="." unique_id=1876546685]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -254.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tbgi4")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("6_tefeu")
+
+[node name="Label" type="Label" parent="Splash" unique_id=2144720133]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = 320.0
+offset_right = 81.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Enter"
+
+[node name="Black" type="ColorRect" parent="." unique_id=779577062]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]

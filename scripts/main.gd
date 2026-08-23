@@ -14,11 +14,12 @@ var paused := false :
 @onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var dialogue_box: DialogBox = $DialogueBox
 @onready var option_popup: ColorRect = $OptionPopup
+@onready var aggro_points: Label = $AggroPoints
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Story.aggro_points_changed.connect(func(value: int): $Label.text = "AP: %2d" % value)
-	begin_action("DIALOG_01")
+	Story.aggro_points_changed.connect(func(value: int): aggro_points.text = "AP: %2d" % value)
+	begin_action("SPLASH_BEGIN")
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)
@@ -60,6 +61,11 @@ func begin_action(id: StringName) -> void:
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())
+		Action.Type.OTHER:
+			match current_action.id:
+				"SPLASH_BEGIN":
+					$Splash.begin()
+					$Splash.finished.connect(begin_action.bind("SPLASH_DIALOG"))
 	
 func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

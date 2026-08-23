@@ -69,7 +69,65 @@ func load_story() -> void:
 		# Otherwise, create new option selects using link name and go to
 		res[action.id] = action
 		
+	add_other_actions(res)
+	
 	action_data = res
+	
+func add_other_actions(input: Dictionary[StringName, Action]) -> void:
+	var action := Action.new()
+	action.id = "ENDING_1"
+	action.type = Action.Type.OTHER
+	action.set_next_action("CASES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "ENDING_2"
+	action.type = Action.Type.OTHER
+	action.set_next_action("CASES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "ENDING_3"
+	action.type = Action.Type.OTHER
+	action.set_next_action("CASES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "CASES"
+	action.type = Action.Type.OTHER
+	action.set_next_action("START_STORY")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "START_STORY"
+	action.type = Action.Type.OTHER
+	action.set_next_action("DIALOG_01")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_START"
+	action.type = Action.Type.OTHER
+	action.set_next_action("OFFICE_END")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "OFFICE_END"
+	action.type = Action.Type.OTHER
+	action.set_next_action("CASES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "SPLASH_BEGIN"
+	action.type = Action.Type.OTHER
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "SPLASH_DIALOG"
+	action.type = Action.Type.DIALOG
+	action.wait_for_confirmation = true
+	action.text = "It is another day at work in the Holstein Collections Inc. office. You are the proud leader of a truly noble department, venturing forth and claiming what is rightfully owed from those who would see it forever withheld."
+	action.set_next_action("OFFICE_DIALOG_01")
+	input[action.id] = action
 
 
 func apply_setter_list(list: Dictionary) -> void:
