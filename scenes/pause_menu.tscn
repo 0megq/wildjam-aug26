@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cnbog2yaelaar"]
 
 [ext_resource type="Script" uid="uid://xdhijsuomwy2" path="res://scripts/pause_menu.gd" id="1_n87rw"]
-
-[sub_resource type="Theme" id="Theme_v0kmk"]
+[ext_resource type="Theme" uid="uid://dykxoqt3r5juy" path="res://main_theme.tres" id="2_myx47"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0kmk"]
 font_size = 48
@@ -24,7 +23,7 @@ offset_left = 13.0
 offset_top = 34.0
 offset_right = 1453.0
 offset_bottom = 1114.0
-theme = SubResource("Theme_v0kmk")
+theme = ExtResource("2_myx47")
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30

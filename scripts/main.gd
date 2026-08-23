@@ -3,11 +3,8 @@ class_name Main extends Control
 
 var current_action: Action
 
-#var cutscene_playing := false #make this into a global var
 var paused := false :
 	set(value):
-		#if cutscene_playing:
-		#	value = fals
 		paused = value
 		pause_menu.visible = value
 
@@ -65,6 +62,9 @@ func begin_action(id: StringName) -> void:
 			
 			dialogue_box.dialog_finished.connect(_on_dialog_finished, CONNECT_ONE_SHOT)
 			dialogue_box.action_display(current_action)
+			
+			if current_action.id == "DIALOG_05":
+				$BellSound.play()
 		Action.Type.OPTION_SELECT:
 			option_popup.option_selected.connect(_on_option_selected, CONNECT_ONE_SHOT)
 			option_popup.display_options(current_action.get_option_names())
@@ -83,24 +83,54 @@ func begin_action(id: StringName) -> void:
 				"CASE_FILES":
 					$DialogueBox.hide()
 					$CaseFile.begin()
+					Story.background = "office"
 					$CaseFile.case_file_selected.connect(_on_case_file_selected)
 				"START_STORY":
 					Story.tween_time = 1.0
 					Story.background = "black"
-					background.finished.connect(_on_story_start_ready, CONNECT_ONE_SHOT)
+					get_tree().create_timer(2).timeout.connect($CarSound.play)
+					get_tree().create_timer(4).timeout.connect(_on_story_start_ready)
+				"ENDING_1":
+					$VictorySound.play()
+					$DialogueBox.hide()
+					Story.background = "ending1"
+					do_ending_transition()
+				"ENDING_2":
+					begin_action.call_deferred("ENDING_2_COMPLETE")
+				"ENDING_2_COMPLETE":
+					$VictorySound.play()
+					$DialogueBox.hide()
+					Story.background = "ending2"
+					do_ending_transition()
+				"ENDING_3":
+					$VictorySound.play()
+					$DialogueBox.hide()
+					Story.background = "ending3"
+					do_ending_transition()
+				"DRIVING_BACK":
+					$DialogueBox.hide()
+					$CarSound.play()
+					await get_tree().create_timer(3).timeout
+					begin_action.call_deferred("CASE_FILES")
+					
+
+func do_ending_transition() -> void:
+	await get_tree().create_timer(5).timeout
+	begin_action.call_deferred("END_DIALOG")
+	
 
 func _on_story_start_ready() -> void:
 	# PLAY DRIVING SOUND
 	await get_tree().create_timer(0.5).timeout
-	begin_action("DIALOG_01")
+	begin_action.call_deferred("DIALOG_01")
 
 
 func _on_case_file_selected() -> void:
 	$CaseFile.end()
-	begin_action("START_STORY")
+	begin_action.call_deferred("START_STORY")
 
 func _splash_to_office_done() -> void:
-	begin_action("OFFICE_01")
+	begin_action.call_deferred("OFFICE_01")
 
 	
 func _input(event:InputEvent) -> void:

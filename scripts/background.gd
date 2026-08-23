@@ -30,9 +30,15 @@ func get_background_texture(background: StringName) -> Texture:
 		"doorOpen":
 			nextTexture = preload("res://assets/backgrounds/outside_house_minigame.jpg")
 		"doorClosed":
-			nextTexture = preload("res://assets/backgrounds/street.jpg")
+			nextTexture = preload("res://assets/backgrounds/door_closed.jpg")
 		"street":
 			nextTexture = preload("res://assets/backgrounds/street.jpg")
+		"ending1":
+			nextTexture = preload("res://assets/backgrounds/ending1.jpg")
+		"ending2":
+			nextTexture = preload("res://assets/backgrounds/ending2.jpg")
+		"ending3":
+			nextTexture = preload("res://assets/backgrounds/ending3.jpg")
 		_:
 			printerr("INVALID BACKGROUND: %s" % background)
 	return nextTexture

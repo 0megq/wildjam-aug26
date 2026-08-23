@@ -89,19 +89,21 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	var action := Action.new()
 	action.id = "ENDING_1"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
 	action.id = "ENDING_2"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASE_FILES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "ENDING_2_COMPLETE"
+	action.type = Action.Type.OTHER
 	input[action.id] = action
 	
 	action = Action.new()
 	action.id = "ENDING_3"
 	action.type = Action.Type.OTHER
-	action.set_next_action("CASE_FILES")
 	input[action.id] = action
 	
 	action = Action.new()
@@ -180,6 +182,34 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	action.wait_for_confirmation = true
 	action.text = "[i]There is no escape for those in debt, nor for those under an employment contract. Do your job.[/i]"
 	action.set_next_action("CASE_FILES")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "END_DIALOG"
+	action.type = Action.Type.DIALOG
+	action.wait_for_confirmation = true
+	action.text = "[i]You head back to the office.[/i]"
+	action.setter_list["background"] = "black"
+	action.set_next_action("DRIVING_BACK")
+	input[action.id] = action
+	
+	action = Action.new()
+	action.id = "DRIVING_BACK"
+	action.type = Action.Type.OTHER
+	action.set_next_action("CASE_FILES")
+	input[action.id] = action
+	
+
+
+## DON't CALL THIS IN THE FINAL BUILD
+func add_dummy(input) -> void:
+	var action := Action.new()
+	action.id = "DUMMY_DELETE_ME"
+	action.type = Action.Type.DIALOG
+	action.wait_for_confirmation = true
+	action.text = "ENFNJHFNJAFN"
+	action.setter_list["background"] = "doorOpen"
+	action.set_next_action("ENDING_3")
 	input[action.id] = action
 
 

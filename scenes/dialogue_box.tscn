@@ -19,7 +19,8 @@ one_shot = true
 
 [node name="CharacterSound" type="AudioStreamPlayer" parent="." unique_id=119427711]
 stream = ExtResource("2_n23yb")
-volume_db = -15.615
+volume_db = -13.409
+bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=903292158]
 layout_mode = 1

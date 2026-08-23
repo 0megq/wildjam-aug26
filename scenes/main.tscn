@@ -4,7 +4,6 @@
 [ext_resource type="Theme" uid="uid://dykxoqt3r5juy" path="res://main_theme.tres" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bv54iqaniy5fm" path="res://scenes/dialogue_box.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cnbog2yaelaar" path="res://scenes/pause_menu.tscn" id="2_tefeu"]
-[ext_resource type="Texture2D" uid="uid://b6yp102mt1w44" path="res://assets/backgrounds/outside_house_minigame.jpg" id="3_trceg"]
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://by6f3p2pkpkpl" path="res://scenes/aggro_bar.tscn" id="5_tipki"]
@@ -14,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://br40okq01lh6x" path="res://scenes/case_file.tscn" id="11_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://dbesk0s7rb25k" path="res://assets/fish/fish1.png" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://dk5gtr42bere0" path="res://scripts/fish_sprite.gd" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://wsy6h1sg6vb2" path="res://assets/sounds/car.WAV" id="15_jkv2x"]
+[ext_resource type="AudioStream" uid="uid://dtvgxa3j857be" path="res://assets/sounds/victory.wav" id="16_jbj1t"]
+[ext_resource type="AudioStream" uid="uid://ddshtblykb7dp" path="res://assets/sounds/bell.mp3" id="16_muem4"]
 
 [sub_resource type="Animation" id="Animation_eb6dy"]
 length = 0.001
@@ -55,15 +57,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_trceg")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("10_choun")
 
 [node name="Alternate" type="TextureRect" parent="Background" unique_id=643684990]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
 
 [node name="CaseFile" parent="." unique_id=1468501119 instance=ExtResource("11_eb6dy")]
 visible = false
@@ -132,5 +138,19 @@ position = Vector2(727, 702)
 scale = Vector2(0.4680197, 0.4680197)
 texture = ExtResource("12_eb6dy")
 script = ExtResource("14_a8y0u")
+
+[node name="CarSound" type="AudioStreamPlayer" parent="." unique_id=17128629]
+stream = ExtResource("15_jkv2x")
+bus = &"SFX"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="." unique_id=14272080]
+stream = ExtResource("16_jbj1t")
+volume_db = -16.072
+bus = &"SFX"
+
+[node name="BellSound" type="AudioStreamPlayer" parent="." unique_id=516925773]
+stream = ExtResource("16_muem4")
+volume_db = -16.072
+bus = &"SFX"
 
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
