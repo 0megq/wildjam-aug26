@@ -1,13 +1,31 @@
 [gd_scene format=3 uid="uid://br40okq01lh6x"]
 
 [ext_resource type="Script" uid="uid://oqa1b0my0hvd" path="res://scripts/case_file.gd" id="1_lr8uf"]
-[ext_resource type="Texture2D" uid="uid://cyl3cocdkiqxt" path="res://folder-transparent-background_518192-2046-1478209580.jpg" id="2_4r7pf"]
+[ext_resource type="Texture2D" uid="uid://5ljgsg41v55n" path="res://assets/case files/file1.png" id="2_5bu10"]
+[ext_resource type="Texture2D" uid="uid://bv5h8ay1xs8kx" path="res://assets/backgrounds/office_no_desk.jpg" id="2_b3mlo"]
+[ext_resource type="Texture2D" uid="uid://c8grrv3iwec0c" path="res://assets/backgrounds/office_desk.png" id="3_ffc5o"]
+[ext_resource type="Texture2D" uid="uid://bvq8fra4xljsd" path="res://assets/case files/file1_locked.png" id="3_g3do8"]
+[ext_resource type="Texture2D" uid="uid://hq1kh0cnfisw" path="res://assets/case files/file2.png" id="4_b3mlo"]
+[ext_resource type="Texture2D" uid="uid://cwy68ipv84ijr" path="res://assets/backgrounds/potted_plant.png" id="4_ffc5o"]
+[ext_resource type="Texture2D" uid="uid://bohn664x7i7d3" path="res://assets/case files/file2_locked.png" id="5_ffc5o"]
+[ext_resource type="Texture2D" uid="uid://berrqthfb6gry" path="res://assets/case files/file3.png" id="6_1s1ax"]
+[ext_resource type="Texture2D" uid="uid://y60dn7ktmn3w" path="res://assets/case files/file3_locked.png" id="7_5c474"]
+[ext_resource type="Texture2D" uid="uid://dbx5tckfhy7iw" path="res://assets/case files/file4.png" id="8_2ke45"]
+[ext_resource type="Texture2D" uid="uid://mny473t1sw2s" path="res://assets/case files/file4_locked.png" id="9_a5k0h"]
+[ext_resource type="Texture2D" uid="uid://jjhi30f1peyo" path="res://assets/case files/file5.png" id="10_jsup2"]
+[ext_resource type="Texture2D" uid="uid://bdbtlvmjfuhhd" path="res://assets/case files/file5_locked.png" id="11_jie4n"]
+[ext_resource type="Texture2D" uid="uid://dm1s3k0gty5wl" path="res://assets/case files/file6.png" id="12_gmlmi"]
+[ext_resource type="Texture2D" uid="uid://bex011saqmrbv" path="res://assets/case files/file6_locked.png" id="13_86kjp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v776q"]
+blend_mode = 3
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1s1ax"]
+blend_mode = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0kmk"]
 font_size = 96
-
-[sub_resource type="LabelSettings" id="LabelSettings_rkyq1"]
-font_size = 40
 
 [node name="CaseFile" type="Control" unique_id=1468501119]
 layout_mode = 3
@@ -18,10 +36,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lr8uf")
 
+[node name="Background" type="TextureRect" parent="." unique_id=1093051756]
+material = SubResource("CanvasItemMaterial_v776q")
+layout_mode = 0
+offset_right = 4355.555
+offset_bottom = 3266.6663
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_b3mlo")
+
+[node name="Desk" type="TextureRect" parent="Background" unique_id=1202502579]
+material = SubResource("CanvasItemMaterial_1s1ax")
+layout_mode = 0
+offset_top = 128.0
+offset_right = 4200.0
+offset_bottom = 3278.0
+texture = ExtResource("3_ffc5o")
+
+[node name="PottedPlant" type="TextureRect" parent="Background" unique_id=2023202493]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 700.0
+offset_right = 1925.0
+offset_bottom = 1902.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ffc5o")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1139621905]
 layout_mode = 0
-offset_right = 2872.4998
-offset_bottom = 1229.9999
+offset_right = 3599.9998
+offset_bottom = 2569.9998
 scale = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1930151797]
@@ -37,51 +80,46 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 300
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=980047796]
+[node name="CaseFile1" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=980047796]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("2_4r7pf")
-texture_hover = ExtResource("2_4r7pf")
+texture_normal = ExtResource("2_5bu10")
+texture_disabled = ExtResource("3_g3do8")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton" unique_id=758315144]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 626.0
-offset_right = 627.0
-offset_bottom = 725.0
-text = "Case 1"
-label_settings = SubResource("LabelSettings_rkyq1")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1455925172]
+[node name="DCaseFile2" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1455925172]
 layout_mode = 2
-texture_normal = ExtResource("2_4r7pf")
+disabled = true
+texture_normal = ExtResource("4_b3mlo")
+texture_disabled = ExtResource("5_ffc5o")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton2" unique_id=1442772148]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 626.0
-offset_right = 627.0
-offset_bottom = 725.0
-text = "Case 1"
-label_settings = SubResource("LabelSettings_rkyq1")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1045461219]
+[node name="DCaseFile3" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=1045461219]
 layout_mode = 2
-texture_normal = ExtResource("2_4r7pf")
+disabled = true
+texture_normal = ExtResource("6_1s1ax")
+texture_disabled = ExtResource("7_5c474")
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton3" unique_id=1978844287]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 626.0
-offset_right = 627.0
-offset_bottom = 725.0
-text = "Case 1"
-label_settings = SubResource("LabelSettings_rkyq1")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=20671370]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 300
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="DCaseFile4" type="TextureButton" parent="VBoxContainer/HBoxContainer2" unique_id=235068084]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("8_2ke45")
+texture_disabled = ExtResource("9_a5k0h")
+
+[node name="DCaseFile5" type="TextureButton" parent="VBoxContainer/HBoxContainer2" unique_id=1208434875]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("10_jsup2")
+texture_disabled = ExtResource("11_jie4n")
+
+[node name="DCaseFile6" type="TextureButton" parent="VBoxContainer/HBoxContainer2" unique_id=2041175270]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("12_gmlmi")
+texture_disabled = ExtResource("13_86kjp")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CaseFile1" to="." method="_on_texture_button_pressed"]

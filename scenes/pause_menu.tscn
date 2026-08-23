@@ -57,17 +57,62 @@ text = "Resume"
 [node name="VBoxContainer" type="HSplitContainer" parent="MarginContainer/VBoxContainer" unique_id=1096096631]
 layout_mode = 2
 size_flags_horizontal = 4
+split_offsets = PackedInt32Array(235)
+split_offset = 235
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1763594518]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Volume"
+text = "Master Volume"
 
-[node name="SoundVolume" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=587739080]
+[node name="Master" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=587739080]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="VBoxContainer2" type="HSplitContainer" parent="MarginContainer/VBoxContainer" unique_id=1237353554]
+layout_mode = 2
+size_flags_horizontal = 4
+split_offsets = PackedInt32Array(235)
+split_offset = 235
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1517871189]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music                  "
+
+[node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=1909191728]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="VBoxContainer3" type="HSplitContainer" parent="MarginContainer/VBoxContainer" unique_id=1339406858]
+layout_mode = 2
+size_flags_horizontal = 4
+split_offsets = PackedInt32Array(235)
+split_offset = 235
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer3" unique_id=1859864109]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sound Effects   "
+
+[node name="SFX" type="HSlider" parent="MarginContainer/VBoxContainer/VBoxContainer3" unique_id=1034264851]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.01
+value = 1.0
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2031906019]
 layout_mode = 2
@@ -78,4 +123,7 @@ text = "Quit
 "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer/Master" to="." method="_on__master_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer2/Music" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/VBoxContainer3/SFX" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

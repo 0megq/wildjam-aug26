@@ -1,5 +1,8 @@
 extends Node2D
 
+signal charged_at_target
+signal charged_at_not_target
+
 var aimed_at_target := false
 
 var acc = Vector2.ZERO
@@ -8,7 +11,7 @@ var vel = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Set if mouse is hidden or not
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	#Initialize reticle position
 	$Reticle.position = get_global_mouse_position()
@@ -16,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	#set_process(false) when scene is not active
 	#Detect if player is intending to charge
 	if Input.is_action_pressed("charging"):
 		$Reticle/ProgressBar.visible = true
@@ -27,9 +30,11 @@ func _process(delta: float) -> void:
 	
 	#Detect if player charges at a certain target or not
 	if $Reticle/ProgressBar.value == 100 and aimed_at_target:
-		print("You charge at the target")
+		#print("You charge at the target")
+		charged_at_target.emit()
 	elif $Reticle/ProgressBar.value == 100:
-		print("You charge at something other than the target")
+		#print("You charge at something other than the target")
+		charged_at_not_target.emit()
 
 func _physics_process(delta: float) -> void:
 	#Acceleration of the reticle depends on how far current pos of reticle is away from mouse cursor
@@ -41,14 +46,16 @@ func _physics_process(delta: float) -> void:
 	
 	#Update reticle position
 	$Reticle.position += vel * delta
+	#$Reticle.position.x = clamp($Reticle.position.x, -100, get_viewport().size.x + 100)
+	#$Reticle.position.y = clamp($Reticle.position.y, -100, get_viewport().size.y + 100)
 	
 
 
 func _on_target_area_entered(area: Area2D) -> void:
-	print('Reticle is on target')
+	#print('Reticle is on target')
 	aimed_at_target = true
 
 
 func _on_target_area_exited(area: Area2D) -> void:
-	aimed_at_target = false
+	#aimed_at_target = false
 	print('Reticle is no longer on target')

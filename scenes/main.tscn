@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvfas87s2uvp1" path="res://scenes/option_popup.tscn" id="4_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://vwqq1bdoaoup" path="res://scripts/splash.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b0jqt7a3vhgg2" path="res://scenes/charging_minigame.tscn" id="7_o6xl0"]
 
 [sub_resource type="SystemFont" id="SystemFont_85g3d"]
 font_names = PackedStringArray("Consolas")
@@ -46,6 +47,9 @@ offset_top = 19.0
 offset_right = 73.0
 offset_bottom = 42.0
 label_settings = SubResource("LabelSettings_2ljgr")
+
+[node name="ChargingMinigame" parent="." unique_id=749736898 instance=ExtResource("7_o6xl0")]
+visible = false
 
 [node name="Splash" type="TextureRect" parent="." unique_id=1876546685]
 layout_mode = 1

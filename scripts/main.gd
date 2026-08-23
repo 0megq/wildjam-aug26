@@ -20,6 +20,7 @@ var paused := false :
 func _ready() -> void:
 	Story.aggro_points_changed.connect(func(value: int): aggro_points.text = "AP: %2d" % value)
 	begin_action("SPLASH_BEGIN")
+	$ChargingMinigame.set_process(false)
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)

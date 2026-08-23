@@ -1,5 +1,9 @@
 extends Node
 
+#add ending achieved indicators for the potted plant
+var peaceful_ending_achieved := false
+var charged_ending_achieved := false
+
 signal aggro_points_changed(value: int)
 
 var current_option_id: int = 1
