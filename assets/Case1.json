@@ -50,7 +50,7 @@
 			"agitation": "100"
 		},
 		"link": {
-			"Charge.": "Charge Minigame"
+			"Charge.": "Ending 2"
 		}
 	},
 	"11": {
@@ -336,7 +336,7 @@
 		}
 	},
 	"4": {
-		"text": "[i]You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music..[/i]",
+		"text": "[i]You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music.[/i]",
 		"set": {
 			"background": "doorClosed"
 		},

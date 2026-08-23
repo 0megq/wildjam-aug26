@@ -59,6 +59,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			dialog_finished.emit()
 			waiting_for_confirmation = false
 
+func reset() -> void:
+	hide()
+	label.text = ""
+	character_timer.stop()
 
 func _on_character_timer_timeout() -> void:
 	if label.visible_characters >= label.text.length():

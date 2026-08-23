@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bprquiyecr5yg" path="res://assets/holstein logo.png" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://by6f3p2pkpkpl" path="res://scenes/aggro_bar.tscn" id="5_tipki"]
 [ext_resource type="Script" uid="uid://vwqq1bdoaoup" path="res://scripts/splash.gd" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://b0jqt7a3vhgg2" path="res://scenes/charging_minigame.tscn" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://c103omp7wuu44" path="res://scripts/background.gd" id="10_choun"]
 [ext_resource type="PackedScene" uid="uid://br40okq01lh6x" path="res://scenes/case_file.tscn" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://dk5gtr42bere0" path="res://scripts/fish_sprite.gd" id="14_a8y0u"]
@@ -96,9 +95,6 @@ offset_left = -115.0
 offset_top = -85.0
 offset_right = 1525.0
 offset_bottom = 2275.0
-
-[node name="ChargingMinigame" parent="." unique_id=749736898 instance=ExtResource("7_o6xl0")]
-visible = false
 
 [node name="Splash" type="TextureRect" parent="." unique_id=1876546685]
 visible = false

@@ -6,6 +6,8 @@ extends TextureProgressBar
 
 @export var charge_threshold: float = 0.8
 
+signal clicked
+
 var is_hovered := false
 
 func _ready() -> void:
@@ -14,6 +16,11 @@ func _ready() -> void:
 	$AnimationPlayer.play("shake_arrow")
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_update_frame()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click") and is_hovered:
+		clicked.emit()
 
 func _on_mouse_entered() -> void:
 	is_hovered = true

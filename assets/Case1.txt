@@ -289,7 +289,7 @@ Case 1
 
 :: 4 {"position":"650,675","size":"100,100"}
 (set: $background to "doorClosed") 
-//You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music..//
+//You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music.//
 
 (link: "Ring the doorbell.")[(go-to: "5")]
 

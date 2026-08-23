@@ -101,11 +101,6 @@ func add_other_actions(input: Dictionary[StringName, Action]) -> void:
 	input[action.id] = action
 	
 	action = Action.new()
-	action.id = "ENDING_2_COMPLETE"
-	action.type = Action.Type.OTHER
-	input[action.id] = action
-	
-	action = Action.new()
 	action.id = "ENDING_3"
 	action.type = Action.Type.OTHER
 	input[action.id] = action

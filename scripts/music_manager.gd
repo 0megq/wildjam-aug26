@@ -22,5 +22,5 @@ func fade_out_music(duration: float = 0.5) -> void:
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(active_player, "volume_db", -80, duration)
 
-func _on_aggro_points_changed(current_aggro_points: int):
-	pitch_scale = 1 + (current_aggro_points/100 * 1.5)
+func _on_aggro_points_changed(current_aggro_points: float):
+	pitch_scale = 1 + (current_aggro_points/100.0 * 1.5)

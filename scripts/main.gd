@@ -20,6 +20,10 @@ func _ready() -> void:
 	Story.aggro_points_changed.connect(func(value: int): 
 		aggro_points.value = value
 		aggro_points.show()
+		if aggro_points.value >= 79:
+			$AggroBar.clicked.connect(_on_bar_clicked)
+		else:
+			$AggroBar.clicked.disconnect(_on_bar_clicked)
 	)
 	Story.background_changed.connect(func(value:StringName):
 		background.set_background(value, Story.tween_time)
@@ -27,9 +31,22 @@ func _ready() -> void:
 	Story.target_changed.connect(func(value: StringName):
 		$FishSprite.texture = load("res://assets/pictures/fish_%s.png" % value)
 	)
-	begin_action("ENDING_1")
-	$ChargingMinigame.set_process(false)
-	
+	begin_action("SPLASH_BEGIN")
+
+
+func _on_bar_clicked() -> void:
+	if Story.current_aggro_points >= 79:
+		cancel_other_actions()
+		begin_action.call_deferred("ENDING_2")
+
+
+func cancel_other_actions() -> void:
+	dialogue_box.hide()
+	dialogue_box.dialog_finished.disconnect(_on_dialog_finished)
+	dialogue_box.reset()
+	option_popup.hide()
+	option_popup.option_selected.disconnect(_on_option_selected)
+
 
 func _on_dialog_finished() -> void:
 	# choose next action (dialog, option, or cutscene)
@@ -66,6 +83,28 @@ func begin_action(id: StringName) -> void:
 					MusicManager.fade_in_music()
 				"DIALOG_05":
 					$BellSound.play()
+				"DIALOG_10":
+					MusicManager.fade_out_music()
+				"DIALOG_11":
+					MusicManager.fade_in_music()
+				"DIALOG_41":
+					MusicManager.fade_in_music()
+				"DIALOG_50":
+					MusicManager.fade_out_music(0)
+				"DIALOG_52":
+					MusicManager.fade_in_music()
+				"DIALOG_100":
+					MusicManager.fade_out_music(0)
+				"DIALOG_83":
+					MusicManager.fade_in_music()
+				"DIALOG_25":
+					MusicManager.fade_out_music()
+				"DIALOG_27":
+					MusicManager.fade_in_music()
+				"DIALOG_91":
+					MusicManager.fade_out_music()
+				"DIALOG_91":
+					MusicManager.fade__music()
 				"END_DIALOG":
 					tween_time = 2.5
 			# Setters must be applied before we begin dialog, otherwise the picture will not be up-to-date
@@ -107,19 +146,17 @@ func begin_action(id: StringName) -> void:
 					Story.background = "ending1"
 					do_ending_transition()
 				"ENDING_2":
-					$AggroBar.hide()
-					Story.current_aggro_points = 0
-					begin_action.call_deferred("ENDING_2_COMPLETE")
-				"ENDING_2_COMPLETE":
 					MusicManager.fade_out_music()
+					Story.current_aggro_points = 0
+					$AggroBar.hide()
 					$VictorySound.play()
 					$DialogueBox.hide()
 					Story.background = "ending2"
 					do_ending_transition()
 				"ENDING_3":
 					MusicManager.fade_out_music()
-					$AggroBar.hide()
 					Story.current_aggro_points = 0
+					$AggroBar.hide()
 					$VictorySound.play()
 					$DialogueBox.hide()
 					Story.background = "ending3"
