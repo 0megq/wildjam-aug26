@@ -21,10 +21,216 @@ Case 1
 (link: "-->")[(go-to: "2")]
 
 
+:: 10 {"position":"650,1425","size":"100,100"}
+"Why don't you go touch some grass, huh? Try not to eat it all while you're at it."
+
+(link: "Keep the peace.")[(go-to: "11")]
+(link: "Dish it back.")[(go-to: "41")]
+
+
+:: 100 {"position":"1250,3800","size":"100,100"}
+(set: $speaker to "target")
+"Who you calling little fishy, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!"
+(set: $agitation to 70)
+
+(link: "-->")[(go-to: "77")]
+
+
+:: 101 {"position":"950,4950","size":"100,100"}
+(set: $speaker to "target")
+"I wasn't trying to tell you to do anything, really- I just think we should both take a step back, and-"
+
+(link: "-->")[(go-to: "102")]
+
+
+:: 102 {"position":"950,5075","size":"100,100"}
+(set: $speaker to "bull")
+"Oh it's //WAY// too late to step back now. Actually, I take that back. I'll take a few steps back. All you have to do is stand still."
+(set: $agitation to it + 5)
+
+(link: "-->")[(go-to: "103")]
+
+
+:: 103 {"position":"950,5200","size":"100,100"}
+(set: $speaker to "target")
+"What? Wait... WAIT-"
+(set: $agitation to 100)
+
+(link: "Charge.")[(go-to: "Charge Minigame")]
+
+
+:: 11 {"position":"400,1550","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+(set: $agitation to it - 10)
+"Haha, I admittedly did consider it. You have a very nice lawn."
+
+(link: "-->")[(go-to: "12")]
+
+
+:: 12 {"position":"400,1675","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Hmph. I put a lot of work into it. Not that it should matter to you."
+
+(link: "Be professional.")[(go-to: "13")]
+(link: "Be vulnerable.")[(go-to: "14")]
+
+
+:: 13 {"position":"500,1800","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"Mm, true. As much as I'd like to ask you for lawn care tips, I do have a job to do. I'd like to discuss some payment plan options with you, if that's alright."
+
+(link: "-->")[(go-to: "15")]
+
+
+:: 14 {"position":"300,1800","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it - 5)
+"Look, I don't want to be here either. But I have a job to do, and I'm trying to make it as little trouble as possible for both of us. I'm supposed to tell you about payment plans now, if that's alright."
+
+(link: "-->")[(go-to: "15")]
+
+
+:: 15 {"position":"400,1925","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Well, you're committed. I'll give you that. Fine, shoot."
+
+(link: "-->")[(go-to: "16")]
+
+
+:: 16 {"position":"400,2050","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"Great! We have a wide array of options available, but the first order of business is confirming the amount you owe. According to the Hereford County Energy Department, you owe a total of 130,987 doubloons. The breakdown of that amount is documented in this report."
+
+(link: "Hold the report up.")[(go-to: "17")]
+(link: "Hand over the report.")[(go-to: "18")]
+
+
+:: 17 {"position":"200,2175","size":"100,100"}
+(set: $targetSprite to "shy")
+(set: $speaker to "target")
+(set: $agitation to it + 5)
+"130,000... That sounds about right. It's been a rough year. I suppose I cut more corners than I could get away with."
+
+(link: "-->")[(go-to: "20")]
+
+
+:: 18 {"position":"500,2175","size":"100,100"}
+(set: $speaker to "narrator")
+(set: $targetSprite to "angry")
+(set: $agitation to it + 30)
+//Fish fins are not particularly suited for handling pieces of paper. The debt report flutters to the ground.//
+
+(link: "-->")[(go-to: "19")]
+
+
+:: 19 {"position":"500,2300","size":"100,100"}
+(set: $speaker to "target")
+"Is this some kind of sick joke?"
+
+(link: "-->")[(go-to: "40")]
+
+
 :: 2 {"position":"650,425","size":"100,100"}
 //You briefly consider sampling some of the nearest lawn for a midday snack. But alas, you've been scolded for that once before. Your boss had called it "unprofessional".//
 
 (link: "-->")[(go-to: "3")]
+
+
+:: 20 {"position":"200,2300","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"I get that. I'll try to help however I can."
+
+(link: "-->")[(go-to: "21")]
+
+
+:: 21 {"position":"200,2425","size":"100,100"}
+(set: $agitation to it + 5)
+"We can work together to craft a payment plan that works best for you. This will depend on your monthly expenses and how much you can realistically repay each month. From there, we'll determine the time frame needed to settle the outstanding amount. Given your positive payment history outside of the current situation, I imagine the approval process will be straightforward."
+
+(link: "-->")[(go-to: "22")]
+
+
+:: 22 {"position":"200,2550","size":"100,100"}
+(set: $fishSprite to "upset")
+(set: $agitation to it + 10)
+"You also have the option of consulting a credit counselor throughout this process to help guide you through budgeting. I can leave you with referrals to a few in town. However, Holstein Collections Inc. prides itself on its state-of-the-art data analytics and predictive modeling. We can help structure your optimal payment plan and get you debt free as soon as possible. I'll help get you set up with our client portal to ensure that you receive all the necessary communications throughout this process, and that you always have someone to talk to if you have any questions. I have a budgeting worksheet on hand for you to take a look at. You can also find it in the portal, along with additional bookkeeping documents that will require your signature. Things like acknowledgement of communication with us, acknowledgement of the amount owed, et cetera."
+
+(link: "-->")[(go-to: "23")]
+
+
+:: 23 {"position":"200,2675","size":"100,100"}
+(set: $speaker to "target")
+"Fish jesus fucking fish christ..."
+
+(link: "-->")[(go-to: "24")]
+
+
+:: 24 {"position":"200,2800","size":"100,100"}
+(if: $agitation < 34)[
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+"Oh, sorry. I got a bit carried away."
+
+(link: "Get back on track.")[(go-to: "37")]
+(link: "Open up about your childhood trauma.")[(go-to: "25")]
+
+](else:)[
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"Is something wrong?"
+
+(link: "-->")[(go-to: "35")]
+]
+
+
+:: 25 {"position":"150,3250","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"My parents never listened to me much growing up, so I suppose I got used to talking a lot and nobody caring."
+
+(link: "-->")[(go-to: "26")]
+
+
+:: 26 {"position":"150,3375","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $targetSprite to "upset")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"Maybe that's why I'm such a people-pleaser. I'm used to overlooking my own needs to chase the smallest scrap of acknowledgement and approval..."
+
+(link: "-->")[(go-to: "27")]
+
+
+:: 27 {"position":"150,3500","size":"100,100"}
+(set: $speaker to "target")
+"Yeah cool story man, just tell me where to sign."
+
+(link: "-->")[(go-to: "28")]
+
+
+:: 28 {"position":"325,3950","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+(set: $agitation to it - 5)
+"Oh- wait, really?"
+
+(link: "-->")[(go-to: "29")]
+
+
+:: 29 {"position":"325,4075","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Will that get you to shut up?"
+
+(link: "-->")[(go-to: "30")]
 
 
 :: 3 {"position":"650,550","size":"100,100"}
@@ -33,11 +239,166 @@ Case 1
 (link: "Approach the door.") [ (goto: "4") ]
 
 
+:: 30 {"position":"325,4200","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"...Yes?"
+
+(link: "-->")[(go-to: "31")]
+
+
+:: 31 {"position":"325,4325","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+(set: $agitation to it - 5)
+"Then I'll sign."
+
+(link: "-->")[(go-to: "32")]
+
+
+:: 32 {"position":"325,4450","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"...Great! The client portal access information is listed here. Once everything in there is set up and signed, I'll reach out and we can discuss your next steps."
+
+(link: "-->")[(go-to: "33")]
+
+
+:: 33 {"position":"325,4575","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Fine, whatever."
+
+(link: "-->")[(go-to: "Ending 1")]
+
+
+:: 35 {"position":"275,2950","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"No, no. Just- you're very talkative."
+
+(link: "-->")[(go-to: "36")]
+
+
+:: 36 {"position":"275,3075","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"Eheheh, so I've been told."
+
+(link: "Get back on track.")[(go-to: "37")]
+(link: "Open up about your childhood trauma.")[(go-to: "25")]
+
+
+:: 37 {"position":"425,3250","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"But back to the topic at hand. As mentioned previously, your positive payment history outside of the current situation gives me high hopes for your approval chances, particularly approval for a payment plan with a lower interest rate."
+
+(link: "-->")[(go-to: "38")]
+
+
+:: 38 {"position":"550,3425","size":"100,100"}
+(set: $speaker to "narrator")
+(set: $targetSprite to "upset")
+(set: $agitation to it + 10)
+//Bullerton proceeds to rant about payment plans to such an outrageously thorough extent that the writer gave up entirely on writing it out, opting for a cheap 4th wall break instead.//
+
+(link: "-->")[(go-to: "39")]
+
+
+:: 39 {"position":"550,3550","size":"100,100"}
+(set: $speaker to "target")
+"...Are you done?"
+
+(link: "-->")[(go-to: "60")]
+
+
 :: 4 {"position":"650,675","size":"100,100"}
-//You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drifts the muffled sounds of music bumping.//
 (set: $background to "doorClosed") 
+//You step onto the porch. The wooden boards creak beneath your hooves. From the other side of the door drift the muffled sounds of classical music..//
 
 (link: "Ring the doorbell.")[(go-to: "5")]
+
+
+:: 40 {"position":"500,2400","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+"I'm so sorry! I wasn't thinking-"
+
+(link: "-->")[(go-to: "69")]
+
+
+:: 41 {"position":"900,1550","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it + 10)
+"Heh, maybe I will. Honestly, I'm surprised you have grass out front and not kelp."
+
+(link: "-->")[(go-to: "42")]
+
+
+
+:: 42 {"position":"900,1675","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+"Oh, how extraordinarily creative of you. Where did you say you worked again?"
+
+(link: "-->")[(go-to: "43")]
+
+
+:: 43 {"position":"900,1800","size":"100,100"}
+(set: $speaker to "bull")
+"Holstein Collections Inc. I'm here because you, sir, are a total of 130,987 doubloons in debt. It's my job to make sure that debt gets settled as painlessly as possible for both of us."
+
+(link: "-->")[(go-to: "44")]
+
+
+:: 44 {"position":"900,1925","size":"100,100"}
+(set: $speaker to "target")
+"Hmph. I don't know what you're talking about."
+(set: $agitation to it + 5)
+
+(link: "Stay on script.")[(go-to: "45")]
+(link: "Refer to your own excrement.")[(go-to: "50")]
+
+
+:: 45 {"position":"800,2050","size":"100,100"}
+(set: $speaker to "bull")
+"Is that so? Well, I'd be happy to sit down with you and walk you through the charges."
+
+(link: "-->")[(go-to: "46")]
+
+
+:: 46 {"position":"800,2175","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Ha! Nice try. But I'm afraid I don't have the time nor the patience to listen to you any longer."
+
+(link: "-->")[(go-to: "47")]
+
+
+:: 47 {"position":"800,2300","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"I figured you'd say that. Thankfully, in addition to eating grass, we bulls are known to be extraordinarily stubborn. I'd be happy to come back another day. And another. And another."
+
+(link: "-->")[(go-to: "48")]
+
+
+:: 48 {"position":"900,2425","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+"You don't know when to quit, do you?"
+
+(link: "-->")[(go-to: "49")]
+
+
+:: 49 {"position":"900,2550","size":"100,100"}
+(set: $speaker to "bull")
+"Oh I do. But that time is not now. So, what'll it be?"
+
+(link: "-->")[(go-to: "53")]
 
 
 :: 5 {"position":"650,800","size":"100,100"}
@@ -46,20 +407,261 @@ Case 1
 (link: "-->")[(go-to: "6")]
 
 
-:: 6 {"position":"650,925","size":"100,100"}
-"Hello? Can I help you?"
-(set: $background to "doorOpen")
+:: 50 {"position":"1000,2050","size":"100,100"}
+(set: $bullSprite to "upset")
+(set: $speaker to "bull")
+(set: $agitation to it + 10)
+"Bullshit."
+
+(link: "-->")[(go-to: "51")]
+
+
+:: 51 {"position":"1000,2175","size":"100,100"}
 (set: $speaker to "target")
+"Excuse me??"
+
+(link: "-->")[(go-to: "52")]
+
+
+:: 52 {"position":"1000,2300","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"You heard me. Don't think you can get out of this by playing dumb. I have your debt report right here."
+
+(link: "-->")[(go-to: "48")]
+
+
+:: 53 {"position":"900,2675","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"..."
+
+(link: "-->")[(go-to: "54")]
+
+
+:: 54 {"position":"900,2800","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $agitation to it + 5)
+"You know what? No! I'm not giving you the time of day. I'll take my chances with whatever the energy department thinks they can throw at me."
+
+(link: "Ease up.")[(go-to: "56")]
+(link: "Stand firm.")[(go-to: "55")]
+
+
+:: 55 {"position":"1050,2925","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"Haha! Unfortunately, they threw me at you. And I'm not going anywhere."
+
+(link: "-->")[(go-to: "62")]
+
+
+:: 56 {"position":"750,2925","size":"100,100"}
+(set: $speaker to "bull")
+"I //am// what the energy department threw at you. I don't want to be here any more than you do, believe me."
+
+(link: "-->")[(go-to: "57")]
+
+
+:: 57 {"position":"750,3050","size":"100,100"}
+(set: $agitation to it - 5)
+"It'll be a lot easier on both of us if you at least listen to what I have to say."
+
+(link: "-->")[(go-to: "58")]
+
+
+:: 58 {"position":"750,3175","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"...Fine. Say what you need to say, if that'll get you outta my scales faster."
+
+(link: "-->")[(go-to: "59")]
+
+
+:: 59 {"position":"750,3300","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"Great. I'll make it quick."
+
+(link: "-->")[(go-to: "38")]
+
+
+:: 6 {"position":"650,925","size":"100,100"}
+(set: $background to "doorOpen")
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Hello? Can I help you?"
 
 (link: "Introduce yourself.")[(go-to: "7")]
 
 
+:: 60 {"position":"550,3675","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"That about covers everything, yes."
+
+(link: "-->")[(go-to: "61")]
+
+
+:: 61 {"position":"550,3800","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+(set: $agitation to it - 5)
+"//Sigh.// Alright, fine. Just tell me where to sign."
+
+(link: "-->")[(go-to: "28")]
+
+
+:: 62 {"position":"1050,3050","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+"Oh yeah? How about I call my lawyer and see what she has to say about that?"
+
+(link: "-->")[(go-to: "63")]
+
+
+:: 63 {"position":"1050,3175","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"You're well within your rights to do that, but it won't change the outcome."
+
+(link: "-->")[(go-to: "64")]
+
+
+:: 64 {"position":"1050,3300","size":"100,100"}
+(set: $targetSprite to "angry")
+(set: $speaker to "target")
+(set: $agitation to it + 5)
+"How about we see the outcome of me throwing these fins in your face, huh?"
+
+(link: "Calm things down.")[(go-to: "66")]
+(link: "Fry this guy.")[(go-to: "65")]
+
+
+:: 65 {"position":"1250,3425","size":"100,100"}
+(set: $bullSprite to "upset")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"I'd like to see that outcome too actually. Go ahead."
+
+(link: "-->")[(go-to: "97")]
+
+
+:: 66 {"position":"1000,3425","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+"Whoa, whoa. Let's try not to end this in violence-"
+
+(link: "-->")[(go-to: "67")]
+
+
+:: 67 {"position":"875,3575","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it - 5)
+"Look, I'm sorry. We got off on the wrong foot. Er, fin. I really am trying to help you."
+
+(link: "-->")[(go-to: "74")]
+
+
+:: 69 {"position":"500,2600","size":"100,100"}
+(set: $speaker to "target")
+(set: $agitation to it + 5)
+"Dam right you weren't thinking! I give you the time out of my day and this is how you treat me? Why am I still talking to you? Get off my porch. And don't touch my lawn!"
+
+(link: "Continue apologizing profusely.")[(go-to: "70")]
+(link: "Stand up for yourself.")[(go-to: "71")]
+
+
 :: 7 {"position":"650,1050","size":"100,100"}
-"Good afternoon! My name is Bullerton, from Holstein Collections Inc."
 (set: $bullSprite to "cheery")
 (set: $speaker to "bull")
+"Good afternoon! My name is Bullerton, from Holstein Collections Inc."
 
 (link: "-->")[(go-to: "8")]
+
+
+:: 70 {"position":"450,2700","size":"100,100"}
+(set: $speaker to "bull")
+"I really am terribly sorry. I meant no offense."
+
+(link: "-->")[(go-to: "73")]
+
+
+:: 71 {"position":"550,2700","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"Okay- I know we bulls are known for eating grass, but we do have self-restraint, you know."
+
+(link: "-->")[(go-to: "72")]
+
+
+:: 72 {"position":"550,2800","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+(set: $agitation to it + 5)
+"Well you should have restrained yourself from hassling me! Did you think about that?"
+
+(link: "-->")[(go-to: "67")]
+
+
+:: 73 {"position":"450,2800","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+(set: $agitation to it + 10)
+"You should have thought about avoiding offense before you came banging on my door! Did you think about that?"
+
+(link: "-->")[(go-to: "67")]
+
+
+:: 74 {"position":"875,3700","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+"I don't want your help! Have I not made that abundantly clear??"
+
+(link: "-->")[(go-to: "75")]
+
+
+:: 75 {"position":"875,3825","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"I understand that, but if you would just allow me to leave some resources here with you-"
+
+(link: "-->")[(go-to: "76")]
+
+
+:: 76 {"position":"875,3950","size":"100,100"}
+(set: $targetSprite to "angry")
+(set: $speaker to "target")
+(set: $agitation to 60)
+"I'm not at all interested in your resources, you grass-guzzling, manure-making, cud-coagulating, pasture-parking, dairy-drinking... COW!"
+
+(link: "-->")[(go-to: "77")]
+
+
+:: 77 {"position":"875,4075","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+"..."
+
+(link: "-->")[(go-to: "78")]
+
+
+:: 78 {"position":"875,4200","size":"100,100"}
+(set: $bullSprite to "upset")
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"So you're gonna be like that, huh?"
+
+(link: "-->")[(go-to: "79")]
+
+
+:: 79 {"position":"875,4325","size":"100,100"}
+"You're gonna stoop that low?"
+(set: $agitation to it + 5)
+
+(link: "-->")[(go-to: "80")]
 
 
 :: 8 {"position":"650,1175","size":"100,100"}
@@ -68,10 +670,196 @@ Case 1
 (link: "-->")[(go-to: "9")]
 
 
-:: 9 {"position":"650,1300","size":"100,100"}
-"Oh, great. Just what I needed."
-(set: $targetSprite to "annoyed")
+:: 80 {"position":"875,4450","size":"100,100"}
+(set: $targetSprite to "shocked")
 (set: $speaker to "target")
+"I- wait-"
+
+(link: "-->")[(go-to: "81")]
+
+
+:: 81 {"position":"875,4575","size":"100,100"}
+(set: $speaker to "bull")
+"I did try to do things the nice way first, but I can play dirty too."
+(set: $agitation to 80)
+
+(link: "-->")[(go-to: "82")]
+
+
+:: 82 {"position":"875,4700","size":"100,100"}
+(set: $speaker to "target")
+"Wait wait, I'm sorry- I didn't mean that. Let's just... both take a breath."
+
+(link: "Chill out.")[(go-to: "83")]
+(link: "RRAAAHHHHHH")[(go-to: "84")]
+
+
+:: 83 {"position":"800,4825","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+(set: $agitation to it - 20)
+"...You're right. This isn't productive. I'm sorry."
+
+(link: "-->")[(go-to: "85")]
+
+
+:: 84 {"position":"950,4825","size":"100,100"}
+(set: $bullSprite to "angry")
+(set: $speaker to "bull")
+"DON'T TELL ME HOW TO BREATHE!"
+(set: $agitation to it + 10)
+
+(link: "-->")[(go-to: "101")]
+
+
+:: 85 {"position":"800,4950","size":"100,100"}
+(set: $targetSprite to "shy")
+(set: $speaker to "target")
+(set: $agitation to it - 10)
+"...It's alright. I was hostile for no reason."
+
+(link: "-->")[(go-to: "86")]
+
+
+:: 86 {"position":"800,5075","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it - 10)
+"I'm supposed to be working on my anger management, but... It's harder than I thought."
+
+(link: "-->")[(go-to: "87")]
+
+
+:: 87 {"position":"800,5200","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+(set: $agitation to it - 10)
+"I get that. Good on you for working on it though."
+
+(link: "-->")[(go-to: "88")]
+
+
+:: 88 {"position":"800,5325","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+(set: $agitation to it - 10)
+"Thanks. It means a lot."
+
+(link: "-->")[(go-to: "89")]
+
+
+:: 89 {"position":"800,5450","size":"100,100"}
+(set: $targetSprite to "shy")
+(set: $speaker to "target")
+"I- sorry, can I be completely honest with you?"
+
+(link: "-->")[(go-to: "90")]
+
+
+:: 9 {"position":"650,1300","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+(set: $agitation to it + 20)
+"Oh, great. Just what I needed."
+
+(link: "-->")[(go-to: "10")]
+
+
+:: 90 {"position":"800,5575","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"Sure?"
+
+(link: "-->")[(go-to: "91")]
+
+
+:: 91 {"position":"800,5700","size":"100,100"}
+(set: $speaker to "target")
+"That was... kinda hot."
+
+(link: "-->")[(go-to: "92")]
+
+
+:: 92 {"position":"800,5825","size":"100,100"}
+(set: $bullSprite to "shocked")
+(set: $speaker to "bull")
+"Oh?"
+
+(link: "-->")[(go-to: "93")]
+
+
+:: 93 {"position":"800,5950","size":"100,100"}
+(set: $targetSprite to "neutral")
+(set: $speaker to "target")
+"Ever since I moved on land, I've had a hard time connecting with people. But just now... the tension... I haven't felt a rush like that in years."
+
+(link: "-->")[(go-to: "94")]
+
+
+:: 94 {"position":"800,6075","size":"100,100"}
+(set: $bullSprite to "neutral")
+(set: $speaker to "bull")
+"I- nobody's ever said something like that to me before..."
+
+(link: "-->")[(go-to: "95")]
+
+
+:: 95 {"position":"800,6200","size":"100,100"}
+(set: $speaker to "target")
+"Well, if you want, I have drinks in the fridge. I could say a lot more to you, if you'd like. And you could tell me all about your payment plans too."
+
+(link: "-->")[(go-to: "96")]
+
+
+:: 96 {"position":"800,6325","size":"100,100"}
+(set: $bullSprite to "cheery")
+(set: $speaker to "bull")
+"That sounds nice, actually. I'll take you up on that."
+
+(link: "-->")[(go-to: "Ending 3")]
+
+
+:: 97 {"position":"1250,3550","size":"100,100"}
+(set: $targetSprite to "upset")
+(set: $speaker to "target")
+"Let me get my lawyer on the line right now. She'll wanna watch this, I'm sure."
+
+(link: "Egg him on.")[(go-to: "98")]
+(link: "Call his bluff.")[(go-to: "99")]
+
+
+:: 98 {"position":"1325,3675","size":"100,100"}
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"Oh, we have an audience now too? You must //really// want to get filleted, little fishy."
+
+(link: "-->")[(go-to: "100")]
+
+
+:: 99 {"position":"1175,3675","size":"100,100"}
+(set: $speaker to "bull")
+(set: $agitation to it + 5)
+"You sure you wanna go through with this, little fishy? You don't seem the type."
+
+(link: "-->")[(go-to: "100")]
+
+
+:: Charge Minigame {"position":"1200,5400","size":"100,100"}
+[charge minigame]
+
+(link: "-->")[(go-to: "Ending 2")]
+
+
+:: Ending 1 {"position":"325,4750","size":"100,100"}
+//(Case Successful, Boringly.)//
+
+
+:: Ending 2 {"position":"1325,5400","size":"100,100"}
+//(Fish Skewer.)//
+
+
+:: Ending 3 {"position":"800,6450","size":"100,100"}
+//(Surf and Turf.)//
 
 
 :: startup [startup] {"position":"650,175","size":"100,100"}

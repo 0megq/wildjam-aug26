@@ -43,18 +43,25 @@ def parse_twine(filename: str):
                 lambda line: len(line.strip()) > 0,
                 block.splitlines()[1:]
             ))
-            
-            # assume the text is in the first line
-            dialogData["text"] = lines[0].strip("\"/")
 
-            # remove the first line since we just processed it
-            lines = lines[1:]
-
+            dialogData["text"] = ""
             dialogData["set"] = {}
             dialogData["link"] = {}
 
+            print(dialogId)
             for line in lines:
-                if line.find("set") == 1:
+                if line.find("\"") == 0 or line.find("/") == 0:
+                    italics = line.find("//")
+                    count = 0
+                    while italics != -1:
+                        if count % 2 == 0:
+                            line = line.replace("//", "[i]", 1)
+                        else:
+                            line = line.replace("//", "[/i]", 1)
+                        count += 1
+                        italics = line.find("//")
+                    dialogData["text"] = line
+                elif line.find("set") == 1:
                     varIdx = line.find("$") + 1
                     varEnd = line.find(" ", varIdx)
                     variableName = line[varIdx:varEnd]
@@ -62,6 +69,11 @@ def parse_twine(filename: str):
                     valIdx = line.find("\"") + 1
                     valEnd = line.find("\"", valIdx)
                     val = line[valIdx:valEnd]
+
+                    if variableName == "agitation":
+                        toIdx = line.rfind("to")
+                        parIdx = line.find(")", toIdx)
+                        val = line[toIdx + 3:parIdx].replace(" ", "")
 
                     dialogData["set"][variableName] = val
                     
@@ -75,7 +87,6 @@ def parse_twine(filename: str):
                     nextName = line[nextIdx:nextEnd]
 
                     dialogData["link"][textName] = nextName
-            
 
             res[dialogId] = dialogData
 

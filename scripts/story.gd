@@ -6,8 +6,8 @@ var current_option_id: int = 1
 
 var current_aggro_points: int = 0 :
 	set(value):
-		current_aggro_points = value
-		aggro_points_changed.emit(value)
+		current_aggro_points = clampi(value, 0, 100)
+		aggro_points_changed.emit(current_aggro_points)
 
 var action_data: Dictionary[StringName, Action]
 
@@ -48,7 +48,8 @@ func load_story() -> void:
 				action.wait_for_confirmation = true
 				break
 			options[Action.Option.new(link, 0)] = next
-			
+		
+		# setup the option action and its callback
 		if options.size() > 0:
 			var option_action := Action.new()
 			option_action.type = Action.Type.OPTION_SELECT
@@ -81,6 +82,12 @@ func apply_setter_list(list: Dictionary) -> void:
 				speaker = value
 			"background":
 				background = value
+			"agitation":
+				if value.contains("it"):
+					var numberStr := value.substr(3).remove_chars(" ")
+					current_aggro_points += int(numberStr)
+				else:
+					current_aggro_points = int(value)
 			_:
 				printerr("unmatched variable in setter list \"%s\" with value \"%s\"" % [variable, value])
 
